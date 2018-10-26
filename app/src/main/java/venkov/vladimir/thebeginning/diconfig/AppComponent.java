@@ -15,12 +15,12 @@ import android.app.Application;
         AndroidSupportInjectionModule.class,
         ActivityBindingModule.class,
         ApplicationModule.class,
-//        ParsersModule.class,
-//        HttpModule.class,
-//        RepositoriesModule.class,
-//        ServicesModule.class,
-//        ValidatorModule.class,
-//        AsyncModule.class,
+        ParsersModule.class,
+        HttpModule.class,
+        RepositoriesModule.class,
+        ServicesModule.class,
+        ValidatorModule.class,
+        AsyncModule.class,
 //        ViewsModule.class
 })
 public interface AppComponent extends AndroidInjector<ApplicationStart> {
