@@ -1,6 +1,8 @@
 package venkov.vladimir.thebeginning.models;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     private int id;
 

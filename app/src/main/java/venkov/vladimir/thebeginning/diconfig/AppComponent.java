@@ -21,7 +21,7 @@ import android.app.Application;
         ServicesModule.class,
         ValidatorModule.class,
         AsyncModule.class,
-//        ViewsModule.class
+        ViewsModule.class
 })
 public interface AppComponent extends AndroidInjector<ApplicationStart> {
     @Component.Builder

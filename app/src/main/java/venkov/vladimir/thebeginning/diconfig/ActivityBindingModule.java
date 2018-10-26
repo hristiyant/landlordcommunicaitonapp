@@ -8,7 +8,7 @@ import venkov.vladimir.thebeginning.Views.ListAllActivity;
 public abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(
-//            modules = ListAllModule.class
+            modules = UsersListModule.class
     )
     abstract ListAllActivity listAllActivity();
 //
