@@ -8,11 +8,12 @@ import android.os.Bundle;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import dagger.android.support.DaggerAppCompatActivity;
 import venkov.vladimir.thebeginning.R;
 import venkov.vladimir.thebeginning.Views.detailUser.DetailUserActivity;
 import venkov.vladimir.thebeginning.models.User;
 
-public class ListAllActivity extends Activity implements UsersListContracts.Navigator {
+public class ListAllActivity extends DaggerAppCompatActivity implements UsersListContracts.Navigator {
 
     @Inject
     UsersListFragment mUsersListFragment;
@@ -27,6 +28,7 @@ public class ListAllActivity extends Activity implements UsersListContracts.Navi
 
         ButterKnife.bind(this);
 
+        int b = 5;
         mUsersListFragment.setNavigator(this);
         mUsersListFragment.setPresenter(mUsersListPresenter);
 
@@ -38,9 +40,9 @@ public class ListAllActivity extends Activity implements UsersListContracts.Navi
 
     @Override
     public void navigateWith(User user) {
-        Intent intent = new Intent(this, DetailUserActivity.class);
-        intent.putExtra(DetailUserActivity.EXTRA_KEY, user);
-        startActivity(intent);
+//        Intent intent = new Intent(this, DetailUserActivity.class);
+//        intent.putExtra(DetailUserActivity.EXTRA_KEY, user);
+//        startActivity(intent);
     }
 
 }

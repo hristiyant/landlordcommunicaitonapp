@@ -12,7 +12,7 @@ import venkov.vladimir.thebeginning.validatiors.base.Validator;
 public class ValidatorModule {
     @Provides
     @Singleton
-    public Validator<User> quoteValidator(){
+    public Validator<User> userValidator(){
         return new UserValidator();
     }
 }

@@ -7,10 +7,11 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dagger.android.support.DaggerAppCompatActivity;
 import venkov.vladimir.thebeginning.R;
 import venkov.vladimir.thebeginning.models.User;
 
-public class DetailUserActivity extends Activity {
+public class DetailUserActivity extends DaggerAppCompatActivity {
 
     public static final String EXTRA_KEY = "USER_EXTRA_KEY";
 

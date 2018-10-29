@@ -99,7 +99,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
             mUserNameTextView.setText(text);
             mPhoneNumber.setText(user.getPhoneNumber());
 //            String userPhotoUrl = user.getImageUrl();
-            Picasso.get().load("").into(mUserPhoto);
+            Picasso.get().load("http://i65.tynipic.com/2mplt0l.jpg").into(mUserPhoto);
             mUser = user;
         }
 
