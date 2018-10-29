@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_start_login_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        />
+
+    <Button
+        android:id="@+id/btn_start_accommodations_list_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accommodations"/>
+
+    <Button
+        android:id="@+id/btn_start_chat_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chat"
+        />
+
+    <Button
+        android:id="@+id/btn_start_users_list_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Users"
+        />
+
+</LinearLayout>

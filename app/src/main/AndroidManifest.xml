@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="venkov.vladimir.thebeginning">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".ApplicationStart"
         android:allowBackup="true"
@@ -10,16 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Views.ListAllActivity">
+        <activity android:name=".Views.ListAllActivity" />
+        <activity android:name=".Views.detailUser.DetailUserActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Views.detailUser.DetailUserActivity"></activity>
+        <activity android:name=".Views.login.LoginActivity" />
+        <activity android:name=".Views.accommodations_list.AccommodationsListActivity" />
+        <activity android:name=".Views.chat.ChatActivity"></activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
