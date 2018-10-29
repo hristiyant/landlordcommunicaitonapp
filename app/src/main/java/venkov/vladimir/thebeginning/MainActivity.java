@@ -9,12 +9,13 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;
+import dagger.android.support.DaggerAppCompatActivity;
 import venkov.vladimir.thebeginning.Views.ListAllActivity;
 import venkov.vladimir.thebeginning.Views.accommodations_list.AccommodationsListActivity;
 import venkov.vladimir.thebeginning.Views.chat.ChatActivity;
 import venkov.vladimir.thebeginning.Views.login.LoginActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends DaggerAppCompatActivity {
 
     @BindView(R.id.btn_start_login_activity)
     Button mStartLogin;

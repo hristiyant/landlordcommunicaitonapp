@@ -21,7 +21,7 @@ import venkov.vladimir.thebeginning.models.User;
 import venkov.vladimir.thebeginning.repositories.HttpRepository;
 import venkov.vladimir.thebeginning.services.HttpUsersService;
 
-public class LoginActivity extends DaggerAppCompatActivity {
+public class LoginActivity extends DaggerAppCompatActivity{
 
     HttpRepository<User> mUsersRepository;
 
@@ -40,12 +40,17 @@ public class LoginActivity extends DaggerAppCompatActivity {
     }
 
     @OnItemClick(R.id.btn_login)
-    public void onBtnLoginClick() throws IOException {
-       List<User> usersList =  mUsersRepository.getAll().stream()
-                .filter(user -> user.getPhoneNumber().toString().equals(mEtPhoneNumber.getText().toString()))
-                .collect(Collectors.toList());
+    public void onBtnLoginClick() {
+        List<User> usersList = null;
+        try {
+            usersList = mUsersRepository.getAll().stream()
+                     .filter(user -> user.getPhoneNumber().toString().equals(mEtPhoneNumber.getText().toString()))
+                     .collect(Collectors.toList());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-       if(!usersList.isEmpty()) {
+        if(!usersList.isEmpty()) {
            Intent intent = new Intent(this, AccommodationsListActivity.class);
            startActivity(intent);
        } else {
