@@ -16,6 +16,10 @@ public class Accommodation {
 
     private double price;
 
+    private double longitude;
+
+    private double latitude;
+
     private Instant dueDate;
 
     private Instant dueLastSentDate;
@@ -85,5 +89,21 @@ public class Accommodation {
 
     public void setDueLastSentDate(Instant dueLastSentDate) {
         this.dueLastSentDate = dueLastSentDate;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 }

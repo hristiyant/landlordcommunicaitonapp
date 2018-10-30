@@ -19,6 +19,8 @@ public class User implements Serializable {
 
     private BankAccount bankAccount;
 
+    private String imageOfTheUser;
+
     public int getId() {
         return id;
     }
@@ -73,5 +75,13 @@ public class User implements Serializable {
 
     public void setBankAccount(BankAccount bankAccount) {
         this.bankAccount = bankAccount;
+    }
+
+    public String getImageOfTheUser() {
+        return imageOfTheUser;
+    }
+
+    public void setImageOfTheUser(String imageOfTheUser) {
+        this.imageOfTheUser = imageOfTheUser;
     }
 }

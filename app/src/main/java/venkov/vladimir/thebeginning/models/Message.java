@@ -14,7 +14,7 @@ public class Message {
 
     private String textOfTheMessage;
 
-//    private ImageAddition image;
+    private String imageUrl;
 
     private User sender;
 
@@ -77,5 +77,13 @@ public class Message {
 
     public void setReceiver(User receiver) {
         this.receiver = receiver;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
