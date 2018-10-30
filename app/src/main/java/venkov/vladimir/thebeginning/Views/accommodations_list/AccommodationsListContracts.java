@@ -2,7 +2,6 @@ package venkov.vladimir.thebeginning.Views.accommodations_list;
 
 import java.util.List;
 
-import venkov.vladimir.thebeginning.Views.UsersListContracts;
 import venkov.vladimir.thebeginning.models.Accommodation;
 
 public interface AccommodationsListContracts {
@@ -19,7 +18,7 @@ public interface AccommodationsListContracts {
 
         void hideLoading();
 
-        void showAccommodationDetails();
+        void showAccommodationDetails(Accommodation accommodation);
     }
 
     interface Presenter {
@@ -27,7 +26,7 @@ public interface AccommodationsListContracts {
 
         void loadAccommodations();
 
-        void filterAccommodations();
+        void filterAccommodations(String pattern);
 
         void selectAccommodation(Accommodation accommodation);
     }
