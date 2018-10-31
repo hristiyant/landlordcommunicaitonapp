@@ -4,12 +4,18 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import venkov.vladimir.thebeginning.Views.login.LoginActivity;
+import venkov.vladimir.thebeginning.Views.login.LoginContracts;
+import venkov.vladimir.thebeginning.Views.login.LoginFragment;
+import venkov.vladimir.thebeginning.Views.login.LoginPresenter;
 
 @Module
 public abstract class LoginModule {
-    @ActivityScoped
+
     @FragmentScoped
     @ContributesAndroidInjector
-    abstract LoginActivity loginActivity();
+    abstract LoginFragment loginFragment();
 
+    @ActivityScoped
+    @Binds
+    abstract LoginContracts.Presenter loginPresenter(LoginPresenter presenter);
 }

@@ -1,11 +1,8 @@
 package venkov.vladimir.thebeginning.Views;
 
-import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-
-import java.io.Serializable;
 
 import javax.inject.Inject;
 
@@ -13,7 +10,6 @@ import butterknife.ButterKnife;
 import dagger.android.support.DaggerAppCompatActivity;
 import venkov.vladimir.thebeginning.MainActivity;
 import venkov.vladimir.thebeginning.R;
-import venkov.vladimir.thebeginning.Views.detailUser.DetailUserActivity;
 import venkov.vladimir.thebeginning.models.User;
 
 public class ListAllActivity extends DaggerAppCompatActivity implements UsersListContracts.Navigator {
@@ -41,7 +37,6 @@ public class ListAllActivity extends DaggerAppCompatActivity implements UsersLis
 
         FragmentTransaction ft = getFragmentManager().beginTransaction()
                 .replace(R.id.content, mUsersListFragment);
-
         ft.commit();
     }
 

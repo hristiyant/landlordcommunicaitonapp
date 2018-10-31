@@ -7,17 +7,17 @@ import venkov.vladimir.thebeginning.models.User;
 
 public interface LoginContracts {
     interface View {
-        void setPresenter(UsersListContracts.Presenter presenter);
+        void setPresenter(LoginContracts.Presenter presenter);
         void showNoUser();
         void showError(Throwable e);
         void showLoading();
         void hideLoading();
-        void showUserDetails(User user);
+        void showLoggedUser(User user);
     }
 
     interface Presenter {
-        void subscribe(UsersListContracts.View view);
-        void loadUsers();
+        void subscribe(LoginContracts.View view);
+        void loginUser(String phone);
         void selectUser(User user);
         void setLoggedUser(User loggedUser);
     }
