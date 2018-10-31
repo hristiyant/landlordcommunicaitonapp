@@ -28,7 +28,7 @@ public class AccommodationsListFragment
         implements AccommodationsListContracts.View, AccommodationsAdapter.OnAccommodationClickListener {
     private AccommodationsListContracts.Navigator mNavigator;
 
-    @BindView(R.id.lv_superheroes)
+    @BindView(R.id.lv_accommodations)
     RecyclerView mAccommodationsView;
 
     @BindView(R.id.loading)

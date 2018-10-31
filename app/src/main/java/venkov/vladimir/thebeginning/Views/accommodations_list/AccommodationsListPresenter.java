@@ -27,7 +27,7 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
         mSchedulerProvider = schedulerProvider;
 
     }
-    )
+
 
     @Override
     public void subscribe(AccommodationsListContracts.View view) {
