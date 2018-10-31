@@ -34,7 +34,7 @@ public class AccommodationsAdapter extends RecyclerView.Adapter<AccommodationsAd
     @Override
     public AccommodationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout., parent, false);
+                .inflate(R.layout.accommodation_item, parent, false);
         int height = parent.getMeasuredHeight() / 3;
         ViewGroup.LayoutParams lp = view.getLayoutParams();
         lp.height = height;
@@ -73,13 +73,13 @@ public class AccommodationsAdapter extends RecyclerView.Adapter<AccommodationsAd
 
     public static class AccommodationViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView()
+        @BindView(R.id.tv_address)
         TextView mAddress;
 
-        @BindView()
+        @BindView(R.id.tv_landlord_name)
         TextView mLandlordName;
 
-        @BindView()
+        @BindView(R.id.tv_landlord_phone_number)
         TextView mLandlordPhoneNumber;
 
         private OnAccommodationClickListener mOnClickListener;

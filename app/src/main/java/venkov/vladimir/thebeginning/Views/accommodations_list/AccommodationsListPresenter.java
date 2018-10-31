@@ -9,18 +9,21 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 import venkov.vladimir.thebeginning.async.base.SchedulerProvider;
 import venkov.vladimir.thebeginning.models.Accommodation;
+import venkov.vladimir.thebeginning.services.AccommodationService;
 
 public class AccommodationsListPresenter implements AccommodationsListContracts.Presenter {
 
-    private AccommodationsListContracts.View mView;
+    private final AccommodationService mAccommodationService;
     private final SchedulerProvider mSchedulerProvider;
+    private AccommodationsListContracts.View mView;
+
 
     @Inject
     public AccommodationsListPresenter(
-            AccommodationsService accommodationsService,
+            AccommodationService accommodationsService,
             SchedulerProvider schedulerProvider) {
 
-        mAccommodationsService = accommodationsService;
+        mAccommodationService = accommodationsService;
         mSchedulerProvider = schedulerProvider;
 
     }
@@ -36,7 +39,7 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<List<Accommodation>>) emitter -> {
-                    List<Accommodation> accommodations = mAccomodationsService.getAllAccommodations();
+                    List<Accommodation> accommodations = mAccommodationService.getAllAccommodations();
                     emitter.onNext(accommodations);
                     emitter.onComplete();
                 })
@@ -53,7 +56,7 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<List<Accommodation>>) emitter -> {
-                    List<Accommodation> accommodations = mAccomodationsService.getFilteredSuperheroes(pattern);
+                    List<Accommodation> accommodations = mAccommodationService.getFilteredAccommodations(pattern);
                     emitter.onNext(accommodations);
                     emitter.onComplete();
                 })
