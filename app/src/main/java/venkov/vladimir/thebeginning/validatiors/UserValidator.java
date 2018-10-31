@@ -15,7 +15,7 @@ public class UserValidator implements Validator<User> {
     }
 
     public String showMessage() {
-        String message = String.format("Quote User's last name should be %s - %s long\n" +
+        String message = String.format("User's last name should be %s - %s long\n" +
                         "first name %s - %s long and \n" +
                         "Phone number length: %s  characters long \n" +
                         "(phone number should be in format: 0888123456)!",

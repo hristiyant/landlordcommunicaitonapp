@@ -3,7 +3,7 @@ package venkov.vladimir.thebeginning.Views.accommodations_list;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -26,6 +26,7 @@ import venkov.vladimir.thebeginning.models.Accommodation;
 public class AccommodationsListFragment
         extends Fragment
         implements AccommodationsListContracts.View, AccommodationsAdapter.OnAccommodationClickListener {
+
     private AccommodationsListContracts.Navigator mNavigator;
 
     @BindView(R.id.lv_accommodations)

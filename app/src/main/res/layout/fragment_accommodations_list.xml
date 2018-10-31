@@ -5,10 +5,28 @@
     android:layout_height="match_parent"
     tools:context=".Views.accommodations_list.AccommodationsListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/et_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter to search" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lv_accommodations"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/et_filter"
+            android:visibility="gone" />
+    </RelativeLayout>
 
 </FrameLayout>

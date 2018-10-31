@@ -6,6 +6,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import venkov.vladimir.thebeginning.http.base.HttpRequester;
+import venkov.vladimir.thebeginning.models.Accommodation;
 import venkov.vladimir.thebeginning.models.User;
 import venkov.vladimir.thebeginning.parsers.base.JsonParser;
 import venkov.vladimir.thebeginning.repositories.HttpRepository;
@@ -22,6 +23,17 @@ public class RepositoriesModule {
             JsonParser<User> jsonParser
     ) {
         String url = baseServerUrl + "/Users";
+        return new HttpRepository<>(httpRequester, url, jsonParser);
+    }
+
+    @Provides
+    @Singleton
+    public Repository<Accommodation> accommodationRepository(
+            @Named("baseServerUrl") String baseServerUrl,
+            HttpRequester httpRequester,
+            JsonParser<Accommodation> jsonParser
+    ) {
+        String url = baseServerUrl + "/Accommodations";
         return new HttpRepository<>(httpRequester, url, jsonParser);
     }
 }

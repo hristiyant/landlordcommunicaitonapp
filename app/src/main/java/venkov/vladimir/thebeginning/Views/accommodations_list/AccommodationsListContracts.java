@@ -29,6 +29,8 @@ public interface AccommodationsListContracts {
         void filterAccommodations(String pattern);
 
         void selectAccommodation(Accommodation accommodation);
+
+        void setAccommodation(Accommodation accommodation);
     }
 
     interface Navigator {

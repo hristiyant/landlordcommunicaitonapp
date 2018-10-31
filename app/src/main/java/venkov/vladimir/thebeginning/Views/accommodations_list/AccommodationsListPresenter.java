@@ -16,6 +16,7 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
     private final AccommodationService mAccommodationService;
     private final SchedulerProvider mSchedulerProvider;
     private AccommodationsListContracts.View mView;
+    private Accommodation accommodation;
 
 
     @Inject
@@ -70,6 +71,11 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
     @Override
     public void selectAccommodation(Accommodation accommodation) {
         mView.showAccommodationDetails(accommodation);
+    }
+
+    @Override
+    public void setAccommodation(Accommodation accommodation) {
+        this.accommodation = accommodation;
     }
 
     private void presentAccommodationsToView(List<Accommodation> accommodations) {

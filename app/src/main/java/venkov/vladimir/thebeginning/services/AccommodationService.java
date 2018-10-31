@@ -13,4 +13,10 @@ public interface AccommodationService {
     List<Accommodation> getFilteredAccommodations(String pattern) throws Exception;
 
     Accommodation createAccommodation(Accommodation accommodation) throws Exception;
+
+    Accommodation getAccommodationByPhoneNumber(String phoneNumber)throws Exception;
+
+    User getTenant() throws Exception;
+
+    User getLandlord() throws Exception;
 }

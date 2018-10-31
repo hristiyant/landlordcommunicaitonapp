@@ -4,6 +4,7 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import venkov.vladimir.thebeginning.Views.ListAllActivity;
 import venkov.vladimir.thebeginning.Views.login.LoginActivity;
+import venkov.vladimir.thebeginning.Views.accommodations_list.AccommodationsListActivity;
 
 @Module
 public abstract class ActivityBindingModule {
@@ -18,10 +19,10 @@ public abstract class ActivityBindingModule {
             modules = LoginModule.class
     )
     abstract LoginActivity loginActivity();
-//
-//    @ActivityScoped
-//    @ContributesAndroidInjector(
-//            modules = QuoteCreateModule.class
-//    )
-//    abstract QuoteCreateActivity quoteCreateActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(
+            modules = AccommodationsListModule.class
+    )
+    abstract AccommodationsListActivity accommodationsListActivity();
 }

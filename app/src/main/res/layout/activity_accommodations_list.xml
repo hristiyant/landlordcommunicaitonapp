@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.accommodations_list.AccommodationsListFragment">
+    tools:context=".Views.accommodations_list.AccommodationsListActivity">
 
-    <RelativeLayout
+
+    <FrameLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" />
 
-        <ProgressBar
-            android:id="@+id/loading"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
 
-        <EditText
-            android:id="@+id/et_filter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter to search" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/lv_accommodations"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/et_filter"
-            android:visibility="gone" />
-    </RelativeLayout>
-
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>
