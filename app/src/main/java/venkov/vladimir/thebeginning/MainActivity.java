@@ -1,24 +1,25 @@
 package venkov.vladimir.thebeginning;
 
 import android.content.Intent;
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnItemClick;
-import dagger.android.support.DaggerAppCompatActivity;
 import venkov.vladimir.thebeginning.Views.ListAllActivity;
 import venkov.vladimir.thebeginning.Views.accommodations_list.AccommodationsListActivity;
 import venkov.vladimir.thebeginning.Views.chat.ChatActivity;
 import venkov.vladimir.thebeginning.Views.login.LoginActivity;
+import venkov.vladimir.thebeginning.models.User;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    public static final String EXTRA_KEY = "LoggedUser";
+
+    private User mLoggedUser;
 
     @BindView(R.id.btn_start_login_activity)
     Button mStartLogin;
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+
+        Intent intent = getIntent();
+        mLoggedUser = (User) intent.getSerializableExtra(MainActivity.EXTRA_KEY);
     }
 
     @OnClick(R.id.btn_start_login_activity)
@@ -63,6 +67,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListAllActivity.class);
         startActivity(intent);
     }
-
 
 }

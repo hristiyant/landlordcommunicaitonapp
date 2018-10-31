@@ -39,6 +39,8 @@ public class HttpUsersService implements UserService {
                 .collect(Collectors.toList());
     }
 
+
+
     @Override
     public User createUser(User user) throws IllegalArgumentException, IOException {
         if(!mUserValidator.isValid(user)){
@@ -48,4 +50,28 @@ public class HttpUsersService implements UserService {
             return mUserRepository.add(user);
         }
     }
+
+    @Override
+    public User getUserByPhoneNumber(String phoneNumber) throws Exception {
+        int b = 4;
+        return getAllUsers().stream()
+                .filter(x -> x.getPhoneNumber().equals(phoneNumber))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
+    public List<User> getAllTenants() throws Exception {
+        return getAllUsers().stream()
+                .filter(x -> !x.getLandlord())
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<User> getAllLandlords() throws Exception {
+        return getAllUsers().stream()
+                .filter(User::getLandlord)
+                .collect(Collectors.toList());
+    }
+
 }

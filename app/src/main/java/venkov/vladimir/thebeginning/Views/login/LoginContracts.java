@@ -1,14 +1,14 @@
-package venkov.vladimir.thebeginning.Views;
+package venkov.vladimir.thebeginning.Views.login;
 
 import java.util.List;
 
+import venkov.vladimir.thebeginning.Views.UsersListContracts;
 import venkov.vladimir.thebeginning.models.User;
 
-public interface UsersListContracts {
+public interface LoginContracts {
     interface View {
-        void setPresenter(Presenter presenter);
-        void showUsers(List<User> users);
-        void showEmptyUsersList();
+        void setPresenter(UsersListContracts.Presenter presenter);
+        void showNoUser();
         void showError(Throwable e);
         void showLoading();
         void hideLoading();
@@ -16,9 +16,8 @@ public interface UsersListContracts {
     }
 
     interface Presenter {
-        void subscribe(View view);
+        void subscribe(UsersListContracts.View view);
         void loadUsers();
-        void filterUsers(String pattern);
         void selectUser(User user);
         void setLoggedUser(User loggedUser);
     }

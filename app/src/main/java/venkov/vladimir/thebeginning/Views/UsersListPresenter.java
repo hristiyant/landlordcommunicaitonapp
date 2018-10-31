@@ -17,6 +17,7 @@ public class UsersListPresenter implements UsersListContracts.Presenter {
     private final UserService mUserService;
     private final SchedulerProvider mSchedulerProvider;
     private UsersListContracts.View mView;
+    private User mLoggedUser;
 
     @Inject
     public UsersListPresenter(SchedulerProvider schedulerProvider, UserService userService) {
@@ -67,5 +68,10 @@ public class UsersListPresenter implements UsersListContracts.Presenter {
         } else {
             mView.showUsers(users);
         }
+    }
+
+    @Override
+    public void setLoggedUser(User loggedUser) {
+        this.mLoggedUser = loggedUser;
     }
 }

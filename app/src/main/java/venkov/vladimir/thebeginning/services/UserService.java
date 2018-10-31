@@ -12,4 +12,10 @@ public interface UserService {
     List<User> getFilteredUsers(String pattern) throws Exception;
 
     User createUser(User user) throws Exception;
+
+    User getUserByPhoneNumber(String phoneNumber)throws Exception;
+
+    List<User> getAllTenants() throws Exception;
+
+    List<User> getAllLandlords() throws Exception;
 }
