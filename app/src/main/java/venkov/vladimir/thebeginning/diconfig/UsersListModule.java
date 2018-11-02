@@ -4,9 +4,9 @@ package venkov.vladimir.thebeginning.diconfig;
 import dagger.Binds;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
-import venkov.vladimir.thebeginning.Views.UsersListContracts;
-import venkov.vladimir.thebeginning.Views.UsersListFragment;
-import venkov.vladimir.thebeginning.Views.UsersListPresenter;
+import venkov.vladimir.thebeginning.Views.users_list.UsersListContracts;
+import venkov.vladimir.thebeginning.Views.users_list.UsersListFragment;
+import venkov.vladimir.thebeginning.Views.users_list.UsersListPresenter;
 
 @Module
 public abstract class UsersListModule {

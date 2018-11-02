@@ -53,7 +53,6 @@ public class HttpUsersService implements UserService {
 
     @Override
     public User getUserByPhoneNumber(String phoneNumber) throws Exception {
-        int b = 4;
         return getAllUsers().stream()
                 .filter(x -> x.getPhoneNumber().equals(phoneNumber))
                 .findFirst()

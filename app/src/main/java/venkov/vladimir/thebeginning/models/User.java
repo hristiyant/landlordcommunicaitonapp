@@ -15,7 +15,7 @@ public class User implements Serializable {
 //    @Size(min = 10, max = 10, message = "Phone number should be in format 0888123456 - 10 digits long")
     private String phoneNumber;
 
-    private Boolean isLandlord;
+    private Boolean landlord;
 
     private BankAccount bankAccount;
 
@@ -27,6 +27,14 @@ public class User implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Boolean getLandlord() {
+        return landlord;
+    }
+
+    public void setLandlord(Boolean landlord) {
+        this.landlord = landlord;
     }
 
     public String getFirstName() {
@@ -59,14 +67,6 @@ public class User implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public Boolean getLandlord() {
-        return isLandlord;
-    }
-
-    public void setLandlord(Boolean landlord) {
-        isLandlord = landlord;
     }
 
     public BankAccount getBankAccount() {

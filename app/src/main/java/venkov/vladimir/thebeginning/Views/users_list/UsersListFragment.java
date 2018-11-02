@@ -1,4 +1,4 @@
-package venkov.vladimir.thebeginning.Views;
+package venkov.vladimir.thebeginning.Views.users_list;
 
 
 import android.os.Bundle;

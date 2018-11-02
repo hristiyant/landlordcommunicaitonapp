@@ -42,7 +42,7 @@ public class LoginActivity extends DaggerAppCompatActivity implements LoginContr
     @Override
     public void navigateWith(User user) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra(MainActivity.EXTRA_KEY, mLoggedUser);
+        intent.putExtra(MainActivity.EXTRA_KEY, user);
         startActivity(intent);
     }
 }

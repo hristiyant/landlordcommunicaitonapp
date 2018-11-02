@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import dagger.Module;
 import dagger.Provides;
-import venkov.vladimir.thebeginning.Views.UsersAdapter;
+import venkov.vladimir.thebeginning.Views.users_list.UsersAdapter;
 import venkov.vladimir.thebeginning.Views.accommodations_list.AccommodationsAdapter;
 
 @Module

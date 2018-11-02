@@ -1,4 +1,4 @@
-package venkov.vladimir.thebeginning.Views;
+package venkov.vladimir.thebeginning.Views.users_list;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

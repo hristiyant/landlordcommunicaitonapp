@@ -1,8 +1,5 @@
 package venkov.vladimir.thebeginning.Views.login;
 
-import java.util.List;
-
-import venkov.vladimir.thebeginning.Views.UsersListContracts;
 import venkov.vladimir.thebeginning.models.User;
 
 public interface LoginContracts {
