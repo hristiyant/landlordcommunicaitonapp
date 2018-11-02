@@ -1,5 +1,6 @@
 package venkov.vladimir.thebeginning.models;
 
+import java.sql.Timestamp;
 import java.time.Instant;
 
 public class Accommodation {
@@ -20,9 +21,9 @@ public class Accommodation {
 
     private double latitude;
 
-    private Instant dueDate;
+    private Timestamp dueDate;
 
-    private Instant dueLastSentDate;
+    private Timestamp dueLastSentDate;
 
     public Accommodation() {
     }
@@ -51,7 +52,7 @@ public class Accommodation {
         this.price = price;
     }
 
-    public void setDueDate(Instant dueDate) {
+    public void setDueDate(Timestamp dueDate) {
         this.dueDate = dueDate;
     }
 
@@ -79,15 +80,15 @@ public class Accommodation {
         return price;
     }
 
-    public Instant getDueDate() {
+    public Timestamp getDueDate() {
         return dueDate;
     }
 
-    public Instant getDueLastSentDate() {
+    public Timestamp getDueLastSentDate() {
         return dueLastSentDate;
     }
 
-    public void setDueLastSentDate(Instant dueLastSentDate) {
+    public void setDueLastSentDate(Timestamp dueLastSentDate) {
         this.dueLastSentDate = dueLastSentDate;
     }
 

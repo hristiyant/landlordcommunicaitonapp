@@ -60,7 +60,7 @@ public class AccommodationsListFragment
         mAccommodationsAdapter.setOnAccommodationClickListener(this);
 
         mAccommodationsView.setAdapter(mAccommodationsAdapter);
-        mAccommodationsViewLayoutManager = new GridLayoutManager(getContext(), 2);
+        mAccommodationsViewLayoutManager = new GridLayoutManager(getContext(), 1);
         mAccommodationsView.setLayoutManager(mAccommodationsViewLayoutManager);
         return view;
     }

@@ -35,7 +35,7 @@ public class AccommodationsAdapter extends RecyclerView.Adapter<AccommodationsAd
     public AccommodationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.accommodation_item, parent, false);
-        int height = parent.getMeasuredHeight() / 3;
+        int height = parent.getMeasuredHeight() / 5;
         ViewGroup.LayoutParams lp = view.getLayoutParams();
         lp.height = height;
         view.setLayoutParams(lp);

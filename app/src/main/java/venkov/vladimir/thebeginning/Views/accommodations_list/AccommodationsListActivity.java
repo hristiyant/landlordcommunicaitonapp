@@ -11,6 +11,7 @@ import dagger.android.support.DaggerAppCompatActivity;
 import venkov.vladimir.thebeginning.MainActivity;
 import venkov.vladimir.thebeginning.R;
 import venkov.vladimir.thebeginning.models.Accommodation;
+import venkov.vladimir.thebeginning.models.User;
 
 public class AccommodationsListActivity extends DaggerAppCompatActivity
         implements AccommodationsListContracts.Navigator{
@@ -21,7 +22,7 @@ public class AccommodationsListActivity extends DaggerAppCompatActivity
     @Inject
     AccommodationsListContracts.Presenter mAccommodationsListPresenter;
 
-    private Accommodation mAccommodation;
+    private User mLoggedUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,8 @@ public class AccommodationsListActivity extends DaggerAppCompatActivity
         mAccommodationsListFragment.setPresenter(mAccommodationsListPresenter);
 
         Intent intent = getIntent();
-        mAccommodation = (Accommodation) intent.getSerializableExtra(MainActivity.EXTRA_KEY);
-        mAccommodationsListPresenter.setAccommodation(mAccommodation);
+        mLoggedUser = (User) intent.getSerializableExtra(MainActivity.EXTRA_KEY);
+        mAccommodationsListPresenter.setLoggedUser(mLoggedUser);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction()
                 .replace(R.id.content,mAccommodationsListFragment);

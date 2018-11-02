@@ -3,6 +3,7 @@ package venkov.vladimir.thebeginning.Views.accommodations_list;
 import java.util.List;
 
 import venkov.vladimir.thebeginning.models.Accommodation;
+import venkov.vladimir.thebeginning.models.User;
 
 public interface AccommodationsListContracts {
     interface View {
@@ -30,7 +31,7 @@ public interface AccommodationsListContracts {
 
         void selectAccommodation(Accommodation accommodation);
 
-        void setAccommodation(Accommodation accommodation);
+        void setLoggedUser(User loggedUser);
     }
 
     interface Navigator {

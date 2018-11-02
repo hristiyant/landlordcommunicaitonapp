@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_start_accommodations_list_activity)
     public void onBtnAccommodationsClick() {
         Intent intent = new Intent(this, AccommodationsListActivity.class);
+        intent.putExtra(MainActivity.EXTRA_KEY, mLoggedUser);
         startActivity(intent);
     }
 

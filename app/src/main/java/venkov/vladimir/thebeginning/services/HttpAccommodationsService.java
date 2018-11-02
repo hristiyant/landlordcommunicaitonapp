@@ -21,6 +21,7 @@ public class HttpAccommodationsService implements AccommodationService{
 
     @Override
     public List<Accommodation> getAllAccommodations() throws Exception {
+        List<Accommodation> all = mAccommodationRepository.getAll();
         return mAccommodationRepository.getAll();
     }
 

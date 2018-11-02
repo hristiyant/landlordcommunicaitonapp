@@ -9,6 +9,7 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 import venkov.vladimir.thebeginning.async.base.SchedulerProvider;
 import venkov.vladimir.thebeginning.models.Accommodation;
+import venkov.vladimir.thebeginning.models.User;
 import venkov.vladimir.thebeginning.services.AccommodationService;
 
 public class AccommodationsListPresenter implements AccommodationsListContracts.Presenter {
@@ -16,7 +17,7 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
     private final AccommodationService mAccommodationService;
     private final SchedulerProvider mSchedulerProvider;
     private AccommodationsListContracts.View mView;
-    private Accommodation accommodation;
+    private User mLoggedUser;
 
 
     @Inject
@@ -74,8 +75,8 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
     }
 
     @Override
-    public void setAccommodation(Accommodation accommodation) {
-        this.accommodation = accommodation;
+    public void setLoggedUser(User loggedUser) {
+        this.mLoggedUser = loggedUser;
     }
 
     private void presentAccommodationsToView(List<Accommodation> accommodations) {
