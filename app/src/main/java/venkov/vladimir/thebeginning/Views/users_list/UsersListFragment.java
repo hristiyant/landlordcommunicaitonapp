@@ -58,7 +58,7 @@ public class UsersListFragment extends Fragment implements UsersListContracts.Vi
 
         ButterKnife.bind(this, view);
 
-        mUsersAdapter.setOnQuoteClickListener(this);
+        mUsersAdapter.setOnUserClickListener(this);
         mUsersView.setAdapter(mUsersAdapter);
         mUsersViewLayoutManager = new GridLayoutManager(getContext(), 2);
         mUsersView.setLayoutManager(mUsersViewLayoutManager);

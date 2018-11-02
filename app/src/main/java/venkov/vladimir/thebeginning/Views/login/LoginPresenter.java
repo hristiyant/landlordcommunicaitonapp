@@ -1,13 +1,10 @@
 package venkov.vladimir.thebeginning.Views.login;
 
-import android.content.Intent;
-
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
-import venkov.vladimir.thebeginning.MainActivity;
 import venkov.vladimir.thebeginning.async.base.SchedulerProvider;
 import venkov.vladimir.thebeginning.models.User;
 import venkov.vladimir.thebeginning.services.UserService;
@@ -17,7 +14,6 @@ public class LoginPresenter implements LoginContracts.Presenter {
     private final UserService mUserService;
     private final SchedulerProvider mSchedulerProvider;
     private LoginContracts.View mView;
-    private User mLoggedUser;
 
     @Inject
     public LoginPresenter(UserService mUserService, SchedulerProvider mSchedulerProvider) {
@@ -50,14 +46,5 @@ public class LoginPresenter implements LoginContracts.Presenter {
         } else {
             mView.showLoggedUser(user);
         }
-    }
-
-    @Override
-    public void selectUser(User user) {
-
-    }
-
-    @Override
-    public void setLoggedUser(User loggedUser) {
     }
 }

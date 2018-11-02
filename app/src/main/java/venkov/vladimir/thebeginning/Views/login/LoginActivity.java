@@ -19,8 +19,6 @@ public class LoginActivity extends DaggerAppCompatActivity implements LoginContr
     @Inject
     LoginContracts.Presenter mLoginPresenter;
 
-    private User mLoggedUser;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +27,6 @@ public class LoginActivity extends DaggerAppCompatActivity implements LoginContr
         mLoginFragment.setNavigator(this);
         mLoginFragment.setPresenter(mLoginPresenter);
         Intent intent = getIntent();
-        mLoggedUser = (User) intent.getSerializableExtra(MainActivity.EXTRA_KEY);
-        mLoginPresenter.setLoggedUser(mLoggedUser);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction()
                 .replace(R.id.contentLogin, mLoginFragment);

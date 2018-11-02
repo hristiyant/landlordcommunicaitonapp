@@ -15,8 +15,6 @@ public interface LoginContracts {
     interface Presenter {
         void subscribe(LoginContracts.View view);
         void loginUser(String phone);
-        void selectUser(User user);
-        void setLoggedUser(User loggedUser);
     }
 
     interface Navigator {

@@ -33,6 +33,7 @@ public class ListAllActivity extends DaggerAppCompatActivity implements UsersLis
         mUsersListFragment.setPresenter(mUsersListPresenter);
         Intent intent = getIntent();
         mLoggedUser = (User) intent.getSerializableExtra(MainActivity.EXTRA_KEY);
+        int b = 6;
         mUsersListPresenter.setLoggedUser(mLoggedUser);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction()

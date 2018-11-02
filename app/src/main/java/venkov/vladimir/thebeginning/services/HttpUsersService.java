@@ -20,8 +20,24 @@ public class HttpUsersService implements UserService {
     }
 
     @Override
-    public List<User> getAllUsers() throws Exception {
-        return mUserRepository.getAll();
+    public List<User> getAllLandlordsOrTenantsAccordingToLoggedUser(User loggedUser) throws Exception {
+        if (loggedUser.getLandlord()) {
+            return getAllTenants();
+        } else {
+            return getAllLandlords();
+        }
+    }
+
+    private List<User> getAllTenants() throws Exception {
+        return mUserRepository.getAll().stream()
+                .filter(x -> !x.getLandlord())
+                .collect(Collectors.toList());
+    }
+
+    private List<User> getAllLandlords() throws Exception {
+        return mUserRepository.getAll().stream()
+                .filter(User::getLandlord)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -30,10 +46,10 @@ public class HttpUsersService implements UserService {
     }
 
     @Override
-    public List<User> getFilteredUsers(String pattern) throws Exception {
+    public List<User> getFilteredByNameLandLordsOrTenantsAccordingToLoggedUser(String pattern, User loggedUser) throws Exception {
         final String patternToLower = pattern.toLowerCase();
 
-        return getAllUsers().stream()
+        return getAllLandlordsOrTenantsAccordingToLoggedUser(loggedUser).stream()
                 .filter(user -> user.getFirstName().toLowerCase().contains(patternToLower) ||
                         user.getLastName().toLowerCase().contains(patternToLower))
                 .collect(Collectors.toList());
@@ -53,24 +69,9 @@ public class HttpUsersService implements UserService {
 
     @Override
     public User getUserByPhoneNumber(String phoneNumber) throws Exception {
-        return getAllUsers().stream()
+        return mUserRepository.getAll().stream()
                 .filter(x -> x.getPhoneNumber().equals(phoneNumber))
                 .findFirst()
                 .orElse(null);
     }
-
-    @Override
-    public List<User> getAllTenants() throws Exception {
-        return getAllUsers().stream()
-                .filter(x -> !x.getLandlord())
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public List<User> getAllLandlords() throws Exception {
-        return getAllUsers().stream()
-                .filter(User::getLandlord)
-                .collect(Collectors.toList());
-    }
-
 }

@@ -67,7 +67,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
         mUsers.addAll(users);
     }
 
-    public void setOnQuoteClickListener(OnUserClickListener onUserClickListener) {
+    public void setOnUserClickListener(OnUserClickListener onUserClickListener) {
         this.mOnUserClickListener = onUserClickListener;
     }
 
@@ -79,12 +79,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
         @BindView(R.id.tv_phone_number)
         TextView mPhoneNumber;
 
-//        @BindView(R.id.tv_content)
-//        TextView mContentTextView;
-
         @BindView(R.id.iv_user_photo)
         ImageView mUserPhoto;
-
 
         private OnUserClickListener mOnUserClickListener;
         private User mUser;

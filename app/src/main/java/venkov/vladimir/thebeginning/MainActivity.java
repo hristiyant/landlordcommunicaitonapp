@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         mLoggedUser = (User) intent.getSerializableExtra(MainActivity.EXTRA_KEY);
 
-        int b = 5;
     }
 
     @OnClick(R.id.btn_start_login_activity)
@@ -67,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_start_users_list_activity)
     public void onBtnUsersClick() {
         Intent intent = new Intent(this, ListAllActivity.class);
+        intent.putExtra(MainActivity.EXTRA_KEY, mLoggedUser);
         startActivity(intent);
     }
 

@@ -34,7 +34,7 @@ public class UsersListPresenter implements UsersListContracts.Presenter {
     public void loadUsers() {
         mView.showLoading();
         Disposable observable = Observable.create((ObservableOnSubscribe<List<User>>) emitter -> {
-            List<User> users = mUserService.getAllUsers();
+            List<User> users = mUserService.getAllLandlordsOrTenantsAccordingToLoggedUser(mLoggedUser);
             emitter.onNext(users);
             emitter.onComplete();
         }).subscribeOn(mSchedulerProvider.background())
@@ -48,7 +48,9 @@ public class UsersListPresenter implements UsersListContracts.Presenter {
     public void filterUsers(String pattern) {
         mView.showLoading();
         Disposable observable = Observable.create((ObservableOnSubscribe<List<User>>) emitter -> {
-            List<User> users = mUserService.getFilteredUsers(pattern);
+
+            List<User> users = mUserService.getFilteredByNameLandLordsOrTenantsAccordingToLoggedUser(pattern, mLoggedUser);
+
             emitter.onNext(users);
             emitter.onComplete();
         }).subscribeOn(mSchedulerProvider.background())
@@ -72,6 +74,6 @@ public class UsersListPresenter implements UsersListContracts.Presenter {
 
     @Override
     public void setLoggedUser(User loggedUser) {
-        this.mLoggedUser = loggedUser;
+        mLoggedUser = loggedUser;
     }
 }
