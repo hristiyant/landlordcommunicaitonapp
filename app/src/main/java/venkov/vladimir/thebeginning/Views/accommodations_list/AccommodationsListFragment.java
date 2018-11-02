@@ -1,9 +1,7 @@
 package venkov.vladimir.thebeginning.Views.accommodations_list;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,6 +40,7 @@ public class AccommodationsListFragment
     AccommodationsAdapter mAccommodationsAdapter;
 
     private AccommodationsListContracts.Presenter mPresenter;
+
     private GridLayoutManager mAccommodationsViewLayoutManager;
 
     @Inject
@@ -78,9 +77,9 @@ public class AccommodationsListFragment
     }
 
     @Override
-    public void showAccommodations(List<Accommodation> superheroes) {
+    public void showAccommodations(List<Accommodation> accommodations) {
         mAccommodationsAdapter.clear();
-        mAccommodationsAdapter.addAll(superheroes);
+        mAccommodationsAdapter.addAll(accommodations);
         mAccommodationsAdapter.notifyDataSetChanged();
     }
 

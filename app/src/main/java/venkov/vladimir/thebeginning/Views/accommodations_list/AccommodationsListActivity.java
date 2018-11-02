@@ -10,6 +10,7 @@ import butterknife.ButterKnife;
 import dagger.android.support.DaggerAppCompatActivity;
 import venkov.vladimir.thebeginning.MainActivity;
 import venkov.vladimir.thebeginning.R;
+import venkov.vladimir.thebeginning.Views.accommodation_details.AccommodationDetailsActivity;
 import venkov.vladimir.thebeginning.models.Accommodation;
 import venkov.vladimir.thebeginning.models.User;
 
@@ -46,6 +47,9 @@ public class AccommodationsListActivity extends DaggerAppCompatActivity
 
     @Override
     public void navigateWith(Accommodation accommodation) {
-
+        Intent intent = new Intent(this, AccommodationDetailsActivity.class);
+        intent.putExtra(MainActivity.EXTRA_KEY, mLoggedUser);
+        intent.putExtra(AccommodationDetailsActivity.ACCOMMODATION_EXTRA_KEY, accommodation);
+        startActivity(intent);
     }
 }

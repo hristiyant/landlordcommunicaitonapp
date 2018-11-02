@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.chat.ChatActivity">
+    tools:context=".Views.accommodation_details.AccommodationDetailsActivity">
 
-    <TextView
+    <FrameLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="chat here"
-        android:id="@+id/tv_chat"/>
-
+        android:layout_height="match_parent"/>
 
 </android.support.constraint.ConstraintLayout>

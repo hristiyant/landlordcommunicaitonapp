@@ -19,7 +19,6 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
     private AccommodationsListContracts.View mView;
     private User mLoggedUser;
 
-
     @Inject
     public AccommodationsListPresenter(
             AccommodationService accommodationsService,
@@ -29,7 +28,6 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
         mSchedulerProvider = schedulerProvider;
 
     }
-
 
     @Override
     public void subscribe(AccommodationsListContracts.View view) {
@@ -41,7 +39,8 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<List<Accommodation>>) emitter -> {
-                    List<Accommodation> accommodations = mAccommodationService.getAllAccommodations();
+                    List<Accommodation> accommodations =
+                            mAccommodationService.getAllAccommodationForLoggedUser(mLoggedUser);
                     emitter.onNext(accommodations);
                     emitter.onComplete();
                 })
@@ -58,7 +57,8 @@ public class AccommodationsListPresenter implements AccommodationsListContracts.
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<List<Accommodation>>) emitter -> {
-                    List<Accommodation> accommodations = mAccommodationService.getFilteredAccommodations(pattern);
+                    List<Accommodation> accommodations =
+                            mAccommodationService.getFilteredAccommodations(pattern, mLoggedUser);
                     emitter.onNext(accommodations);
                     emitter.onComplete();
                 })

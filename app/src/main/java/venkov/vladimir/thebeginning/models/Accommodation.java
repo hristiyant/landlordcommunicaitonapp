@@ -1,9 +1,10 @@
 package venkov.vladimir.thebeginning.models;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.Instant;
 
-public class Accommodation {
+public class Accommodation implements Serializable {
 
     private int id;
 

@@ -14,8 +14,8 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".Views.users_list.ListAllActivity" />
         <activity android:name=".Views.detailUser.DetailUserActivity" />
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Views.login.LoginActivity" >
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Views.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Views.accommodations_list.AccommodationsListActivity" />
-        <activity android:name=".Views.chat.ChatActivity"></activity>
+        <activity android:name=".Views.chat.ChatActivity" />
+        <activity android:name=".Views.accommodation_details.AccommodationDetailsActivity"></activity>
     </application>
 
 </manifest>

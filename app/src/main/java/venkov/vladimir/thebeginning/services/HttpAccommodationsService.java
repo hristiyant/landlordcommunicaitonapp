@@ -26,15 +26,23 @@ public class HttpAccommodationsService implements AccommodationService{
     }
 
     @Override
+    public List<Accommodation> getAllAccommodationForLoggedUser(User loggedUser) throws Exception {
+        return getAllAccommodations().stream()
+                .filter(x -> x.getTenant().getId() == loggedUser.getId() ||
+                x.getLandlord().getId() == loggedUser.getId())
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public Accommodation getDetailsById(int id) throws Exception {
         return mAccommodationRepository.getById(id);
     }
 
     @Override
-    public List<Accommodation> getFilteredAccommodations(String pattern) throws Exception {
+    public List<Accommodation> getFilteredAccommodations(String pattern, User loggedUser) throws Exception {
         final String patternToLower = pattern.toLowerCase();
 
-        return getAllAccommodations().stream()
+        return getAllAccommodationForLoggedUser(loggedUser).stream()
                 .filter(accommodation -> accommodation.getAddress().toLowerCase().contains(patternToLower))
                 .collect(Collectors.toList());
     }
@@ -42,31 +50,20 @@ public class HttpAccommodationsService implements AccommodationService{
 
 
     @Override
-    public Accommodation createAccommodation(Accommodation accommodation) throws IllegalArgumentException, IOException {
+    public Accommodation createAccommodation(Accommodation accommodation) throws Exception {
         if(!mAccommodationValidator.isValid(accommodation)){
-            throw new IllegalArgumentException("User is not valid!");
+            throw new IllegalArgumentException("Accommodation is not valid!");
         }else {
-
             return mAccommodationRepository.add(accommodation);
         }
     }
 
-    @Override
-    public Accommodation getAccommodationByPhoneNumber(String phoneNumber) throws Exception {
-        //int b = 4;
-        return getAllAccommodations().stream()
-                .filter(x -> x.getLandlord().getPhoneNumber().equals(phoneNumber))
-                .findFirst()
-                .orElse(null);
-    }
-
-    @Override
-    public User getTenant() throws Exception {
-        return this.getTenant();
-    }
-
-    @Override
-    public User getLandlord() throws Exception {
-        return this.getLandlord();
-    }
+//    @Override
+//    public Accommodation getAccommodationByPhoneNumber(String phoneNumber) throws Exception {
+//        //int b = 4;
+//        return getAllAccommodations().stream()
+//                .filter(x -> x.getLandlord().getPhoneNumber().equals(phoneNumber))
+//                .findFirst()
+//                .orElse(null);
+//    }
 }
