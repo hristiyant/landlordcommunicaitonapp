@@ -13,9 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".Views.users_list.ListAllActivity" />
+<<<<<<< Updated upstream
         <activity android:name=".Views.detailUser.DetailUserActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Views.login.LoginActivity">
+=======
+        <activity android:name=".Views.user_details.UserDetailsActivity" />
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Views.login.LoginActivity" >
+>>>>>>> Stashed changes
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

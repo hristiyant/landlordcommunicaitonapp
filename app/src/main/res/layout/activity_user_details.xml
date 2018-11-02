@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.accommodations_list.AccommodationsListActivity">
-
+    tools:context=".Views.user_details.UserDetailsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,12 +15,10 @@
             android:layout_height="40dp" />
 
         <FrameLayout
-            android:layout_below="@id/drawer_toolbar"
             android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_below="@id/drawer_toolbar" />
     </RelativeLayout>
-
-
 
 </android.support.constraint.ConstraintLayout>
