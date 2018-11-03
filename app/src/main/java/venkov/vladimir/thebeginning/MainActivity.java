@@ -8,10 +8,10 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import venkov.vladimir.thebeginning.Views.users_list.ListAllActivity;
 import venkov.vladimir.thebeginning.Views.accommodations_list.AccommodationsListActivity;
-import venkov.vladimir.thebeginning.Views.chat.ChatActivity;
+import venkov.vladimir.thebeginning.Views.chat.select_user.SelectUserActivity;
 import venkov.vladimir.thebeginning.Views.login.LoginActivity;
+import venkov.vladimir.thebeginning.Views.users_list.ListAllActivity;
 import venkov.vladimir.thebeginning.models.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_start_chat_activity)
     public void onChatClick() {
-        Intent intent = new Intent(this, ChatActivity.class);
+        Intent intent = new Intent(this, SelectUserActivity.class);
+        intent.putExtra(MainActivity.EXTRA_KEY, mLoggedUser);
         startActivity(intent);
     }
 

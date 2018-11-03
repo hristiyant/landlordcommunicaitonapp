@@ -9,7 +9,7 @@ public class AsyncSchedulerProvider implements SchedulerProvider {
 
     private static SchedulerProvider instance;
 
-    private AsyncSchedulerProvider() {
+    public AsyncSchedulerProvider() {
         //Required empty private constructor for Singleton
     }
 

@@ -11,17 +11,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity android:name=".Views.users_list.ListAllActivity" />
-<<<<<<< Updated upstream
-        <activity android:name=".Views.detailUser.DetailUserActivity" />
+        <activity android:name=".Views.user_details.UserDetailsActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Views.login.LoginActivity">
-=======
-        <activity android:name=".Views.user_details.UserDetailsActivity" />
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Views.login.LoginActivity" >
->>>>>>> Stashed changes
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,8 +23,23 @@
             </intent-filter>
         </activity>
         <activity android:name=".Views.accommodations_list.AccommodationsListActivity" />
-        <activity android:name=".Views.chat.ChatActivity" />
-        <activity android:name=".Views.accommodation_details.AccommodationDetailsActivity"></activity>
+        <activity android:name=".Views.chat.ChatActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Views.chat.DialogsActivity" />
+        </activity>
+        <activity android:name=".Views.accommodation_details.AccommodationDetailsActivity" />
+        <activity
+            android:name=".Views.chat.DialogsActivity"
+            android:label="@string/title_activity_dialogs"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+        <activity android:name=".Views.chat.select_user.SelectUserActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Views.chat.DialogsActivity" />
+        </activity>
     </application>
 
 </manifest>

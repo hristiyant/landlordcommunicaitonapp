@@ -1,7 +1,6 @@
 package venkov.vladimir.thebeginning;
 
 
-import android.os.Bundle;
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
 import venkov.vladimir.thebeginning.diconfig.DaggerAppComponent;

@@ -2,11 +2,8 @@ package venkov.vladimir.thebeginning.diconfig;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
-<<<<<<< Updated upstream
 import venkov.vladimir.thebeginning.Views.accommodation_details.AccommodationDetailsActivity;
-=======
 import venkov.vladimir.thebeginning.Views.user_details.UserDetailsActivity;
->>>>>>> Stashed changes
 import venkov.vladimir.thebeginning.Views.users_list.ListAllActivity;
 import venkov.vladimir.thebeginning.Views.login.LoginActivity;
 import venkov.vladimir.thebeginning.Views.accommodations_list.AccommodationsListActivity;
