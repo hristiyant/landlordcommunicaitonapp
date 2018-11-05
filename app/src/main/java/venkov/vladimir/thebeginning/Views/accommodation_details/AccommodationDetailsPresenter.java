@@ -53,14 +53,17 @@ public class AccommodationDetailsPresenter implements AccommodationDetailsContra
     }
 
     @Override
-    public void payRent() {
+    public void payRent(Accommodation accommodation) {
 //        mView.showLoading();
+        mCurrentAccommodation = accommodation;
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<Accommodation>) emitter -> {
-                    Accommodation accommodation =
-                            mAccommodationService.payRentForAccommodation(mCurrentAccommodation.getId(),
-                                    mCurrentAccommodation);
-                    emitter.onNext(accommodation);
+                    int b = 5;
+                    Accommodation accommodationAfterPayment =
+                            mAccommodationService.payRentForAccommodation(accommodation.getId(),
+                                    accommodation);
+                    int bp = 6;
+                    emitter.onNext(accommodationAfterPayment);
                     emitter.onComplete();
                 })
                 .subscribeOn(mSchedulerProvider.background())

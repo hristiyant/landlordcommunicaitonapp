@@ -35,7 +35,7 @@ public class HttpAccommodationsService implements AccommodationService{
 
     @Override
     public Accommodation payRentForAccommodation(int accommodationId, Accommodation accommodation) throws Exception {
-       return mAccommodationRepository.edit(accommodation, accommodationId, "pay");
+       return mAccommodationRepository.edit(accommodation, accommodationId, "pay/");
     }
 
     @Override

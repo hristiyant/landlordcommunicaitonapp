@@ -80,7 +80,7 @@ public class AccommodationDetailsFragment extends Fragment implements Accommodat
 
     @OnClick(R.id.btn_pay_rent)
     public void onPayRentButtonClick() {
-        mPresenter.payRent();
+        mPresenter.payRent(mCurrentAccommodation);
     }
 
     @OnClick(R.id.btn_start_chat_activity)

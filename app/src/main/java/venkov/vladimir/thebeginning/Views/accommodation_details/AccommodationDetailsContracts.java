@@ -30,7 +30,7 @@ public interface AccommodationDetailsContracts {
 
         void setCurrentAccommodation(Accommodation currentAccommodation);
 
-        void payRent();
+        void payRent(Accommodation accommodation);
     }
 
     interface Navigator {

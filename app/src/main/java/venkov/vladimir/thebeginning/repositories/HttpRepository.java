@@ -38,10 +38,12 @@ public class HttpRepository<T> implements Repository<T> {
     @Override
     public T edit(T item, int id, String additionalPrefix) throws IOException {
         //additionalPrefix for modifying put request while keeping generic functionality
-        String url = mServerUrl + "/" + additionalPrefix + "/" + id;
+        String url = mServerUrl + "/" + additionalPrefix + id;
         String requestBody = mJsonParser.toJson(item);
+        int b = 5;
         String responseBody = mHttpRequester.put(url, requestBody);
         return mJsonParser.fromJson(responseBody);
+//        return item;
     }
 
     @Override
