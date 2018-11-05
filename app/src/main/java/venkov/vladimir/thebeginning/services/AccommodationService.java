@@ -1,5 +1,6 @@
 package venkov.vladimir.thebeginning.services;
 
+import java.io.IOException;
 import java.util.List;
 
 import venkov.vladimir.thebeginning.models.Accommodation;
@@ -9,6 +10,8 @@ public interface AccommodationService {
     List<Accommodation> getAllAccommodations() throws Exception;
 
     List<Accommodation> getAllAccommodationForLoggedUser(User loggedUser) throws Exception;
+
+    Accommodation payRentForAccommodation(int accommodationId, Accommodation accommodation) throws Exception;
 
     Accommodation getDetailsById(int id) throws Exception;
 

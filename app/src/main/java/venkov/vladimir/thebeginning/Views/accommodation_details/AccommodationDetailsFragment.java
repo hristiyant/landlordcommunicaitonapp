@@ -65,6 +65,24 @@ public class AccommodationDetailsFragment extends Fragment implements Accommodat
         setDueDate(dueDate);
     }
 
+    @Override
+    public void showRentIsAlreadyPayed() {
+        Toast.makeText(getContext(), "Rent is already payed for this month!", Toast.LENGTH_LONG)
+                .show();
+    }
+
+    @Override
+    public void showPayedRent(Accommodation accommodation) {
+        mCurrentAccommodation = accommodation;
+        onResume();
+
+    }
+
+    @OnClick(R.id.btn_pay_rent)
+    public void onPayRentButtonClick() {
+        mPresenter.payRent();
+    }
+
     @OnClick(R.id.btn_start_chat_activity)
     public void onStartChatButtonClick() {
         mPresenter.startChat();

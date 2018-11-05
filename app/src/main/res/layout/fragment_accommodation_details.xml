@@ -29,11 +29,18 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_due_date"
             android:text="due Date"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_pay_rent"
+            android:text="Pay Rent"/>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btn_start_chat_activity"
-            android:text="StartChat"/>
+            android:text="Start Chat"/>
 
     </LinearLayout>
 

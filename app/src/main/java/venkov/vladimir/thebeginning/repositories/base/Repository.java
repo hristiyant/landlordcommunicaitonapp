@@ -8,7 +8,7 @@ public interface Repository<T> {
 
     T add(T item) throws IOException;
 
-    T edit(T item, int id) throws IOException;
+    T edit(T item, int id, String additionalPrefix) throws IOException;
 
     T getById(int id) throws IOException;
 }

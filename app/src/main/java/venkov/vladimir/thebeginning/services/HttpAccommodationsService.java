@@ -34,6 +34,11 @@ public class HttpAccommodationsService implements AccommodationService{
     }
 
     @Override
+    public Accommodation payRentForAccommodation(int accommodationId, Accommodation accommodation) throws Exception {
+       return mAccommodationRepository.edit(accommodation, accommodationId, "pay");
+    }
+
+    @Override
     public Accommodation getDetailsById(int id) throws Exception {
         return mAccommodationRepository.getById(id);
     }
@@ -58,12 +63,4 @@ public class HttpAccommodationsService implements AccommodationService{
         }
     }
 
-//    @Override
-//    public Accommodation getAccommodationByPhoneNumber(String phoneNumber) throws Exception {
-//        //int b = 4;
-//        return getAllAccommodations().stream()
-//                .filter(x -> x.getLandlord().getPhoneNumber().equals(phoneNumber))
-//                .findFirst()
-//                .orElse(null);
-//    }
 }

@@ -1,8 +1,5 @@
 package venkov.vladimir.thebeginning.Views.accommodation_details;
 
-import java.util.List;
-
-import venkov.vladimir.thebeginning.Views.accommodations_list.AccommodationsListContracts;
 import venkov.vladimir.thebeginning.models.Accommodation;
 import venkov.vladimir.thebeginning.models.User;
 
@@ -16,6 +13,10 @@ public interface AccommodationDetailsContracts {
         void showChat(Accommodation accommodation, User user);
 
         void setCurrentAccommodation(Accommodation currentAccommodation);
+
+        void showRentIsAlreadyPayed();
+
+        void showPayedRent(Accommodation accommodation);
     }
 
     interface Presenter {
@@ -28,6 +29,8 @@ public interface AccommodationDetailsContracts {
         void setDetails();
 
         void setCurrentAccommodation(Accommodation currentAccommodation);
+
+        void payRent();
     }
 
     interface Navigator {

@@ -28,18 +28,20 @@ public class HttpRepository<T> implements Repository<T> {
 
     @Override
     public T add(T item) throws IOException {
-        String url = mServerUrl + "/new";
+        String url = mServerUrl;
         String requestBody = mJsonParser.toJson(item);
         String responseBody = mHttpRequester.post(url, requestBody);
 
-        mJsonParser.fromJson(responseBody) ;
-        return item;
+        return mJsonParser.fromJson(responseBody) ;
     }
 
     @Override
-    public T edit(T item, int id) throws IOException {
-        //todo later impl
-        return null;
+    public T edit(T item, int id, String additionalPrefix) throws IOException {
+        //additionalPrefix for modifying put request while keeping generic functionality
+        String url = mServerUrl + "/" + additionalPrefix + "/" + id;
+        String requestBody = mJsonParser.toJson(item);
+        String responseBody = mHttpRequester.put(url, requestBody);
+        return mJsonParser.fromJson(responseBody);
     }
 
     @Override
