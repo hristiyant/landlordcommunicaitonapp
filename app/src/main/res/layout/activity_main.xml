@@ -5,40 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    <Button
-        android:id="@+id/btn_start_login_activity"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LogOut"
-        />
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btn_start_accommodations_list_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Accommodations"/>
+        <Button
+            android:id="@+id/btn_start_login_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_corners"
+            android:text="LogOut"
+            android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/btn_start_chat_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chat"
-        />
+        <Button
+            android:id="@+id/btn_start_accommodations_list_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_corners"
+            android:text="Accommodations"
+            android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/btn_start_users_list_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Users"
-        />
+        <Button
+            android:id="@+id/btn_start_chat_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_corners"
+            android:text="Chat"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_start_users_list_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:text="Users"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -12,35 +12,38 @@
 
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/tv_address"
-            android:text="address"
-         />
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="address" />
+
+        <TextView
             android:id="@+id/tv_rent"
-            android:text="rent"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rent" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/tv_due_date"
-            android:text="due Date"/>
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="due Date" />
+
+        <Button
             android:id="@+id/btn_pay_rent"
-            android:text="Pay Rent"/>
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_corners"
+            android:text="Pay Rent" />
+
+        <Button
             android:id="@+id/btn_start_chat_activity"
-            android:text="Start Chat"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_corners"
+            android:text="Start Chat" />
 
     </LinearLayout>
 

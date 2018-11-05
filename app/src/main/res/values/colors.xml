@@ -6,4 +6,6 @@
 
     <color name="chatBubbleGray">#DDDDDD</color>
 
+    <color name="backgroundDark">#212121</color>
+
 </resources>
