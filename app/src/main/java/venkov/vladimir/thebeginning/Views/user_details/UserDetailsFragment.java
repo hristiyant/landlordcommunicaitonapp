@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -33,6 +34,10 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
 
     @BindView(R.id.tv_phone_number)
     TextView mPhoneNumberTextView;
+
+    @BindView(R.id.rb_show_rating)
+    RatingBar mShowRating;
+
 
 
 
@@ -67,6 +72,9 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
         mPhoneNumberTextView.setText(user.getPhoneNumber());
         String userPhotoUrl = user.getImageOfTheUser();
         Picasso.get().load(userPhotoUrl).into(mUserDetailsPhoto);
+
+        double a = user.getRating();
+        mShowRating.setRating((float) user.getRating());
     }
 
 

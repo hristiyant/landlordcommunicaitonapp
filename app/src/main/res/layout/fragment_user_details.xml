@@ -82,14 +82,14 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_phone_number">
 
             <RatingBar
-                android:id="@+id/ratingBar"
+                android:id="@+id/rb_show_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:isIndicator="true"
-                android:numStars="1"
+                android:numStars="5"
                 android:progressTint="@color/colorPrimaryDark"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -116,7 +116,7 @@
                 android:background="@drawable/ic_chat_white_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/ratingBar2"
-                app:layout_constraintStart_toEndOf="@+id/ratingBar"
+                app:layout_constraintStart_toEndOf="@+id/rb_show_rating"
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>

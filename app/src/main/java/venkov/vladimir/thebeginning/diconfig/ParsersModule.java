@@ -23,4 +23,8 @@ public class ParsersModule {
     public JsonParser<Accommodation> accommodationJsonParser() {
         return new GsonJsonParser<>(Accommodation.class, Accommodation[].class);
     }
+    @Provides
+    public JsonParser<Double> doubleJsonParser() {
+        return new GsonJsonParser<>(Double.class, Double[].class);
+    }
 }

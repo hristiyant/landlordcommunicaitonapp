@@ -1,10 +1,12 @@
 package venkov.vladimir.thebeginning.services;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import venkov.vladimir.thebeginning.models.User;
+import venkov.vladimir.thebeginning.repositories.base.RatingRepository;
 import venkov.vladimir.thebeginning.repositories.base.Repository;
 import venkov.vladimir.thebeginning.validatiors.base.Validator;
 
@@ -13,10 +15,14 @@ public class HttpUsersService implements UserService {
 
     private final Repository<User> mUserRepository;
     private final Validator<User> mUserValidator;
+    private final RatingRepository mRatingRepository;
 
-    public HttpUsersService(Repository<User> repository , Validator<User> validator) {
+    public HttpUsersService(Repository<User> repository , Validator<User> validator,
+                            RatingRepository ratingRepository)
+    {
         mUserRepository = repository;
         mUserValidator = validator;
+        mRatingRepository = ratingRepository;
     }
 
     @Override
@@ -28,21 +34,35 @@ public class HttpUsersService implements UserService {
         }
     }
 
+    private List<User> getAllUsersPlusRating() throws Exception {
+        ArrayList<User> users = new ArrayList<>();
+        mUserRepository.getAll().forEach(x ->{ x.setRating(mRatingRepository.getRatingById(x.getId()));
+            users.add(x); });
+
+        User uss = users.get(0);
+        int a = 0;
+
+        return users;
+    }
+
     private List<User> getAllTenants() throws Exception {
-        return mUserRepository.getAll().stream()
+        return getAllUsersPlusRating().stream()
                 .filter(x -> !x.getLandlord())
                 .collect(Collectors.toList());
     }
 
     private List<User> getAllLandlords() throws Exception {
-        return mUserRepository.getAll().stream()
+        return getAllUsersPlusRating().stream()
                 .filter(User::getLandlord)
                 .collect(Collectors.toList());
     }
 
     @Override
     public User getDetailsById(int id) throws Exception {
-        return mUserRepository.getById(id);
+        User user = mUserRepository.getById(id);
+        user.setRating(mRatingRepository.getRatingById(id));
+        return user;
+
     }
 
     @Override

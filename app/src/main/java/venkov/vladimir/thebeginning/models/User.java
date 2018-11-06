@@ -21,6 +21,16 @@ public class User implements Serializable {
 
     private String imageOfTheUser;
 
+    private double rating;
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
     public int getId() {
         return id;
     }

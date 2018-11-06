@@ -34,6 +34,7 @@ public class UserDetailsActivity extends DaggerAppCompatActivity{
         Intent intent = getIntent();
         User user = (User) intent.getSerializableExtra(UserDetailsActivity.EXTRA_KEY);
 
+        int a = 1;
         mUserDetailsPresenter.setUserId(user.getId());
         mUserDetailsFragment.setPresenter(mUserDetailsPresenter);
 

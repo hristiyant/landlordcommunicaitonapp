@@ -40,6 +40,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_pay_rent"
             android:hint="New Rent"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/colorPrimary"
             android:inputType="numberDecimal"
             android:visibility="gone"/>
 
