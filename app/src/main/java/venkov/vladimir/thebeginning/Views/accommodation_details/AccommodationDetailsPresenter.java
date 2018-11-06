@@ -43,42 +43,64 @@ public class AccommodationDetailsPresenter implements AccommodationDetailsContra
     }
 
     @Override
-    public void setDetails() {
-        mView.setCurrentAccommodation(mCurrentAccommodation);
-    }
-
-    @Override
     public void setCurrentAccommodation(Accommodation currentAccommodation) {
         mCurrentAccommodation = currentAccommodation;
     }
 
     @Override
+    public void setDetails() {
+        if (!mLoggedUser.getLandlord()) {
+            mView.showPayRentButton();
+        }
+        mView.setCurrentAccommodation(mCurrentAccommodation);
+
+    }
+
+    @Override
     public void payRent(Accommodation accommodation) {
-//        mView.showLoading();
+        mView.showLoading();
         mCurrentAccommodation = accommodation;
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<Accommodation>) emitter -> {
-                    int b = 5;
                     Accommodation accommodationAfterPayment =
                             mAccommodationService.payRentForAccommodation(accommodation.getId(),
                                     accommodation);
-                    int bp = 6;
                     emitter.onNext(accommodationAfterPayment);
                     emitter.onComplete();
                 })
                 .subscribeOn(mSchedulerProvider.background())
                 .observeOn(mSchedulerProvider.ui())
-//                .doFinally(mView::hideLoading)
-                .subscribe(this::presentPayedAccommodation,
+                .doFinally(mView::hideLoading)
+                .subscribe(this::presentChangedAccommodation,
                         error -> mView.showError(error));
     }
 
-    private void presentPayedAccommodation(Accommodation accommodation) {
+    private void presentChangedAccommodation(Accommodation accommodation) {
         if (accommodation.equals(mCurrentAccommodation)) {
-            mView.showRentIsAlreadyPayed();
+            int b = 5;
+            mView.noChangeWasMade();
         } else {
-            mView.showPayedRent(accommodation);
+            mView.showChangedAccommodation(accommodation);
             setCurrentAccommodation(accommodation);
         }
+    }
+
+    @Override
+    public void changeRent(Accommodation accommodation, double newRent) {
+        mView.showLoading();
+        mCurrentAccommodation = accommodation;
+        Disposable observable = Observable
+                .create((ObservableOnSubscribe<Accommodation>) emitter -> {
+                    Accommodation accommodationAfterChange =
+                            mAccommodationService
+                                    .editRent(accommodation.getId(), accommodation, newRent);
+                    emitter.onNext(accommodationAfterChange);
+                    emitter.onComplete();
+                })
+                .subscribeOn(mSchedulerProvider.background())
+                .observeOn(mSchedulerProvider.ui())
+                .doFinally(mView::hideLoading)
+                .subscribe(this::presentChangedAccommodation,
+                        error -> mView.showError(error));
     }
 }

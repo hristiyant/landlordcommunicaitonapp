@@ -61,4 +61,10 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
     implementation 'com.android.volley:volley:1.1.1'
+
+    // location play services
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    // dexter runtime permissions
+    implementation 'com.karumi:dexter:4.2.0'
 }

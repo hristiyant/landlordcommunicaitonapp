@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <TextView
             android:id="@+id/tv_address"
             android:layout_width="match_parent"
@@ -18,16 +17,40 @@
             android:text="address" />
 
         <TextView
-            android:id="@+id/tv_rent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="rent" />
-
-        <TextView
             android:id="@+id/tv_due_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="due Date" />
+
+        <TextView
+            android:id="@+id/tv_rent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rent"
+            android:visibility="visible"/>
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_pay_rent"
+            android:hint="New Rent"
+            android:inputType="numberDecimal"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btn_edit_rent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_corners"
+            android:text="Change Rent"
+            android:visibility="visible"/>
 
         <Button
             android:id="@+id/btn_pay_rent"
@@ -35,7 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_corners"
-            android:text="Pay Rent" />
+            android:text="Pay Rent"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/btn_start_chat_activity"
@@ -44,6 +68,19 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_corners"
             android:text="Start Chat" />
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"/>
+
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/btn_share_this_location"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:text="share_this_store_location"/>-->
 
     </LinearLayout>
 

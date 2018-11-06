@@ -40,10 +40,8 @@ public class HttpRepository<T> implements Repository<T> {
         //additionalPrefix for modifying put request while keeping generic functionality
         String url = mServerUrl + "/" + additionalPrefix + id;
         String requestBody = mJsonParser.toJson(item);
-        int b = 5;
         String responseBody = mHttpRequester.put(url, requestBody);
         return mJsonParser.fromJson(responseBody);
-//        return item;
     }
 
     @Override

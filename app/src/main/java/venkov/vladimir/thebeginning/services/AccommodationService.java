@@ -18,4 +18,6 @@ public interface AccommodationService {
     List<Accommodation> getFilteredAccommodations(String pattern, User user) throws Exception;
 
     Accommodation createAccommodation(Accommodation accommodation) throws Exception;
+
+    Accommodation editRent(int id, Accommodation accommodation, double newRent) throws Exception;
 }

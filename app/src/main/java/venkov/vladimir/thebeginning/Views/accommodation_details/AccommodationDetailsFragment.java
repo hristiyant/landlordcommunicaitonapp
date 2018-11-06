@@ -1,13 +1,27 @@
 package venkov.vladimir.thebeginning.Views.accommodation_details;
 
 
+import android.Manifest;
 import android.app.Fragment;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import javax.inject.Inject;
 
@@ -36,6 +50,20 @@ public class AccommodationDetailsFragment extends Fragment implements Accommodat
     @BindView(R.id.tv_due_date)
     TextView mDueDate;
 
+    @BindView(R.id.btn_pay_rent)
+    Button mPayRentButton;
+
+    @BindView(R.id.et_pay_rent)
+    EditText mChangeRent;
+
+    @BindView(R.id.btn_edit_rent)
+    Button mEditRentButton;
+
+    @BindView(R.id.loading)
+    ProgressBar mProgressBar;
+
+    private GoogleMap mGoogleMap;
+
     @Inject
     public AccommodationDetailsFragment() {
         // Required empty public constructor
@@ -49,6 +77,14 @@ public class AccommodationDetailsFragment extends Fragment implements Accommodat
 
         ButterKnife.bind(this, view);
 
+        if (ContextCompat.checkSelfPermission(getContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }
+
         return view;
     }
 
@@ -56,6 +92,10 @@ public class AccommodationDetailsFragment extends Fragment implements Accommodat
     public void onResume() {
         super.onResume();
         mPresenter.subscribe(this);
+        refreshView();
+    }
+
+    private void refreshView() {
         mPresenter.setDetails();
         String address = mCurrentAccommodation.getAddress();
         String price = "" + mCurrentAccommodation.getPrice();
@@ -63,20 +103,48 @@ public class AccommodationDetailsFragment extends Fragment implements Accommodat
         setAddress(address);
         setRent(price);
         setDueDate(dueDate);
+
+        LatLng coordinates = new LatLng(
+                mCurrentAccommodation.getLatitude(), mCurrentAccommodation.getLongitude());
+
+        try {
+            initializeMap(coordinates);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void showRentIsAlreadyPayed() {
-        Toast.makeText(getContext(), "Rent is already payed for this month!", Toast.LENGTH_LONG)
+    public void showPayRentButton() {
+        mPayRentButton.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void noChangeWasMade() {
+        Toast.makeText(getContext(), "No Change was made!", Toast.LENGTH_LONG)
                 .show();
     }
 
     @Override
-    public void showPayedRent(Accommodation accommodation) {
+    public void showChangedAccommodation(Accommodation accommodation) {
         mCurrentAccommodation = accommodation;
         onResume();
 
     }
+
+    @OnClick(R.id.btn_edit_rent)
+    public void onEditRentClick() {
+        if (mChangeRent.getVisibility() == View.GONE) {
+            mChangeRent.setVisibility(View.VISIBLE);
+        } else {
+            double newRent = Double.parseDouble(mChangeRent.getText().toString());
+            mPresenter.changeRent(mCurrentAccommodation, newRent);
+            mChangeRent.setVisibility(View.GONE);
+        }
+    }
+
+
 
     @OnClick(R.id.btn_pay_rent)
     public void onPayRentButtonClick() {
@@ -123,5 +191,39 @@ public class AccommodationDetailsFragment extends Fragment implements Accommodat
 
     void setNavigator(AccommodationDetailsContracts.Navigator navigator) {
         mNavigator = navigator;
+    }
+
+    private void initializeMap(LatLng coordinates) {
+        if (mGoogleMap == null) {
+//            ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
+            ((MapFragment) getChildFragmentManager().findFragmentById(R.id.map))
+                    .getMapAsync(googleMap1 -> {
+                        mGoogleMap = googleMap1;
+                        if (mGoogleMap == null) {
+                            Toast.makeText(getContext(),
+                                    "Sorry! unable to create maps", Toast.LENGTH_SHORT)
+                                    .show();
+                        } else {
+                            MarkerOptions marker = new MarkerOptions().position(coordinates)
+                                    .title(mCurrentAccommodation.getAddress());
+                            mGoogleMap.addMarker(marker);
+
+                            CameraPosition cameraPosition = new CameraPosition.Builder().target(
+                                    coordinates).zoom(16).build();
+
+                            mGoogleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                        }
+                    });
+        }
+    }
+
+    @Override
+    public void showLoading() {
+        mProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideLoading() {
+        mProgressBar.setVisibility(View.GONE);
     }
 }

@@ -14,9 +14,15 @@ public interface AccommodationDetailsContracts {
 
         void setCurrentAccommodation(Accommodation currentAccommodation);
 
-        void showRentIsAlreadyPayed();
+        void noChangeWasMade();
 
-        void showPayedRent(Accommodation accommodation);
+        void showChangedAccommodation(Accommodation accommodation);
+
+        void showPayRentButton();
+
+        void showLoading();
+
+        void hideLoading();
     }
 
     interface Presenter {
@@ -31,6 +37,8 @@ public interface AccommodationDetailsContracts {
         void setCurrentAccommodation(Accommodation currentAccommodation);
 
         void payRent(Accommodation accommodation);
+
+        void changeRent(Accommodation currentAccommodation, double newRent);
     }
 
     interface Navigator {

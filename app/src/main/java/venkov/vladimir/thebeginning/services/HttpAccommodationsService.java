@@ -1,6 +1,5 @@
 package venkov.vladimir.thebeginning.services;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,6 +35,12 @@ public class HttpAccommodationsService implements AccommodationService{
     @Override
     public Accommodation payRentForAccommodation(int accommodationId, Accommodation accommodation) throws Exception {
        return mAccommodationRepository.edit(accommodation, accommodationId, "pay/");
+    }
+
+    @Override
+    public Accommodation editRent(int id, Accommodation accommodation, double newRent) throws Exception {
+        accommodation.setPrice(newRent);
+        return mAccommodationRepository.edit(accommodation, id,"");
     }
 
     @Override
