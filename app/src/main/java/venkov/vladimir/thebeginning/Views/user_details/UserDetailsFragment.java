@@ -5,7 +5,10 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
@@ -19,6 +22,9 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
 
     private UserDetailsContracts.Presenter mPresenter;
 
+    @BindView(R.id.iv_user_details_photo)
+    ImageView mUserDetailsPhoto;
+
     @BindView(R.id.tv_first_name)
     TextView mFirstNameTextView;
 
@@ -27,6 +33,7 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
 
     @BindView(R.id.tv_phone_number)
     TextView mPhoneNumberTextView;
+
 
 
 
@@ -58,6 +65,8 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
         mFirstNameTextView.setText(user.getFirstName());
         mLastNameTextView.setText(user.getLastName());
         mPhoneNumberTextView.setText(user.getPhoneNumber());
+        String userPhotoUrl = user.getImageOfTheUser();
+        Picasso.get().load(userPhotoUrl).into(mUserDetailsPhoto);
     }
 
 
