@@ -11,4 +11,9 @@
 
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="CustomRatingBar" parent="Theme.AppCompat">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:colorControlNormal">#008577</item>
+    </style>
+
 </resources>

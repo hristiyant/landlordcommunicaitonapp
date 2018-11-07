@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "830451572683",
+    "firebase_url": "https://xperiachat.firebaseio.com",
+    "project_id": "xperiachat",
+    "storage_bucket": "xperiachat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830451572683:android:4c7ab1011a829461",
+        "android_client_info": {
+          "package_name": "venkov.vladimir.thebeginning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830451572683-9vherd9oj5tt6e5inqegnc8ph16ns2i5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "venkov.vladimir.thebeginning",
+            "certificate_hash": "760b940dd7964808231261cb0a4492d4b77f5193"
+          }
+        },
+        {
+          "client_id": "830451572683-eau4hggapimuhu94klsuo5tr6lok3j61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMpJStOEouogBjbxOctXivMUrNXX6hkWA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830451572683-eau4hggapimuhu94klsuo5tr6lok3j61.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

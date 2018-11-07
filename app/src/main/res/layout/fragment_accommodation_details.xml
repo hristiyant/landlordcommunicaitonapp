@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/animated_button"
             android:text="Change Rent"
             android:visibility="visible"/>
 
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/animated_button"
             android:text="Pay Rent"
             android:visibility="gone"/>
 
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/animated_button"
             android:text="Start Chat" />
 
         <fragment

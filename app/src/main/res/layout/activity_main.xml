@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/animated_button"
             android:text="LogOut"
             android:textColor="@android:color/white" />
 
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/animated_button"
             android:text="Accommodations"
             android:textColor="@android:color/white" />
 
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/animated_button"
             android:text="Chat"
             android:textColor="@android:color/white" />
 
@@ -51,7 +51,7 @@
             android:id="@+id/btn_start_users_list_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/animated_button"
             android:text="Users"
             android:textColor="@android:color/white" />
     </LinearLayout>

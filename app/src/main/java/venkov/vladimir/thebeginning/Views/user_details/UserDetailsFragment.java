@@ -1,5 +1,6 @@
 package venkov.vladimir.thebeginning.Views.user_details;
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -73,8 +74,12 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
         String userPhotoUrl = user.getImageOfTheUser();
         Picasso.get().load(userPhotoUrl).into(mUserDetailsPhoto);
 
-        double a = user.getRating();
-        mShowRating.setRating((float) user.getRating());
+        float userRating = (float) user.getRating();
+        //mShowRating.setRating((float) user.getRating());
+        //Animation for our rating bar
+        ObjectAnimator anim = ObjectAnimator.ofFloat(mShowRating, "rating", 0f, userRating);
+        anim.setDuration(1000);
+        anim.start();
     }
 
 

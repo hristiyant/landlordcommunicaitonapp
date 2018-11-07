@@ -2,8 +2,16 @@ package venkov.vladimir.thebeginning;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.btn_start_users_list_activity)
     Button mStartUsers;
 
+    private DatabaseReference mDatabase;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +55,30 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         mLoggedUser = (User) intent.getSerializableExtra(MainActivity.EXTRA_KEY);
 
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("xperiachat");
+        mDatabase.child("0888111964").setValue("hristiqneeeeee")
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Write was successful!
+                        // ...
+                        Toast.makeText(MainActivity.this, "KUREC RABOTI", Toast.LENGTH_SHORT).show();
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Write failed
+                        // ...
+
+                        Toast.makeText(MainActivity.this, "PEDAL NE RABOTI", Toast.LENGTH_SHORT).show();
+                        Log.d("proba", "onFailure: " + e.getMessage());
+
+                    }
+                });
     }
 
     @OnClick(R.id.btn_start_login_activity)
