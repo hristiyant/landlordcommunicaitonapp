@@ -1,8 +1,8 @@
 package venkov.vladimir.thebeginning;
 public class Constants {
     public static final String BASE_SERVER_URL
-            = "http://192.168.43.138:8080";
-//            = "http://192.168.1.248:8080"; //vl domip
+//            = "http://192.168.43.138:8080";
+            = "http://192.168.1.248:8080"; //vl domip
 //    ="http://192.168.43.196:8080"; //hrist phone hotspot
     public static final int USER_LAST_NAME_MIN_LENGTH = 2;
     public static final int USER_LAST_NAME_MAX_LENGTH = 20;

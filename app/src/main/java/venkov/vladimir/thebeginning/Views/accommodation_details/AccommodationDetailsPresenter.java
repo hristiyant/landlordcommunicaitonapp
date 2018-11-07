@@ -59,7 +59,7 @@ public class AccommodationDetailsPresenter implements AccommodationDetailsContra
     @Override
     public void payRent(Accommodation accommodation) {
         mView.showLoading();
-        mCurrentAccommodation = accommodation;
+//        mCurrentAccommodation = accommodation;
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<Accommodation>) emitter -> {
                     Accommodation accommodationAfterPayment =
@@ -76,19 +76,22 @@ public class AccommodationDetailsPresenter implements AccommodationDetailsContra
     }
 
     private void presentChangedAccommodation(Accommodation accommodation) {
-        if (accommodation.equals(mCurrentAccommodation)) {
-            int b = 5;
-            mView.noChangeWasMade();
-        } else {
-            mView.showChangedAccommodation(accommodation);
+//        int b = 5; //
+//        if (accommodation.getPrice() == mCurrentAccommodation.getPrice()
+//                && accommodation.getDueDate().equals(mCurrentAccommodation.getDueDate())) {
+//
+//            mView.noChangeWasMade();
+//        } else {
             setCurrentAccommodation(accommodation);
-        }
+            mView.showChangedAccommodation(accommodation);
+
+//        }
     }
 
     @Override
     public void changeRent(Accommodation accommodation, double newRent) {
         mView.showLoading();
-        mCurrentAccommodation = accommodation;
+//        mCurrentAccommodation = accommodation;
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<Accommodation>) emitter -> {
                     Accommodation accommodationAfterChange =
