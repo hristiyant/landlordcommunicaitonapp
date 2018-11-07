@@ -99,6 +99,7 @@
 
 
             <Button
+                android:id="@+id/btn_rate_user"
                 android:layout_width="53dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"

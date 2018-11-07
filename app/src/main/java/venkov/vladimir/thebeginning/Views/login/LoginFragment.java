@@ -4,12 +4,15 @@ package venkov.vladimir.thebeginning.Views.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.ratingdialog.simple.RatingDialog;
 
 import javax.inject.Inject;
 
@@ -58,6 +61,31 @@ public class LoginFragment extends Fragment implements LoginContracts.View{
     public void onLoginButtonClick() {
         String phoneNumber = mPhoneText.getText().toString();
         mPresenter.loginUser(phoneNumber);
+    }
+
+    @OnClick(R.id.btn_dialog)
+    public void onDialogButtonClick() {
+        RatingDialog mRatingDialog = new RatingDialog(getContext());
+        mRatingDialog.setRatingDialogListener(new RatingDialog.RatingDialogInterFace() {
+            @Override
+            public void onDismiss() {
+                Log.v("RATELISTERNER","onDismiss ");
+            }
+
+            @Override
+            public void onSubmit(float rating) {
+                Log.v("RATELISTERNER","onSubmit "+rating);
+                mRatingDialog.closeDialog();
+            }
+
+            @Override
+            public void onRatingChanged(float rating) {
+                Log.v("RATELISTERNER","onRatingChanged "+rating);
+            }
+        });
+
+        mRatingDialog.showDialog();
+
     }
 
     void setNavigator(LoginContracts.Navigator navigator) {
