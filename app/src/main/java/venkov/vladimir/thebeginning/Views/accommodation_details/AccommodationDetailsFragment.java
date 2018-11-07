@@ -3,6 +3,7 @@ package venkov.vladimir.thebeginning.Views.accommodation_details;
 
 import android.Manifest;
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -29,6 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import venkov.vladimir.thebeginning.R;
+import venkov.vladimir.thebeginning.Views.notifications.ScheduleNotificationActivity;
 import venkov.vladimir.thebeginning.models.Accommodation;
 import venkov.vladimir.thebeginning.models.User;
 
@@ -84,6 +86,28 @@ public class AccommodationDetailsFragment extends Fragment implements Accommodat
             ActivityCompat.requestPermissions(getActivity(),
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
+        if (ContextCompat.checkSelfPermission(getContext(),
+                Manifest.permission.SET_ALARM)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.SET_ALARM}, 1);
+        }
+
+        if (ContextCompat.checkSelfPermission(getContext(),
+                Manifest.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND}, 1);
+        }
+        if (ContextCompat.checkSelfPermission(getContext(),
+                Manifest.permission.RECEIVE_WAP_PUSH)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.RECEIVE_WAP_PUSH}, 1);
+        }
 
         return view;
     }
@@ -130,6 +154,8 @@ public class AccommodationDetailsFragment extends Fragment implements Accommodat
     public void showChangedAccommodation(Accommodation accommodation) {
         mCurrentAccommodation = accommodation;
         onResume();
+        Intent intent = new Intent(getContext(), ScheduleNotificationActivity.class);
+        startActivity(intent);
 
     }
 
