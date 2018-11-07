@@ -1,6 +1,7 @@
 package venkov.vladimir.thebeginning.Views.login;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;

@@ -39,8 +39,9 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
     @BindView(R.id.rb_show_rating)
     RatingBar mShowRating;
 
+    private User mUserToBeRated;
 
-
+    private User mLoggedUser;
 
 
     @Inject
@@ -67,7 +68,14 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
     }
 
     @Override
+    public void setLoggedUser(User loggedUser) {
+        mLoggedUser = loggedUser;
+    }
+
+    @Override
     public void showUser(User user) {
+
+        setUserToBeRated(user);
         mFirstNameTextView.setText(user.getFirstName());
         mLastNameTextView.setText(user.getLastName());
         mPhoneNumberTextView.setText(user.getPhoneNumber());
@@ -80,6 +88,10 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
         ObjectAnimator anim = ObjectAnimator.ofFloat(mShowRating, "rating", 0f, userRating);
         anim.setDuration(1000);
         anim.start();
+    }
+
+    private void setUserToBeRated(User userToBeRated) {
+        mUserToBeRated = userToBeRated;
     }
 
 

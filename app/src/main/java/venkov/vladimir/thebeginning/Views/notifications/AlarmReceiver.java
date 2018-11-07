@@ -13,6 +13,11 @@ import venkov.vladimir.thebeginning.R;
 import venkov.vladimir.thebeginning.Views.login.LoginActivity;
 
 public class AlarmReceiver extends BroadcastReceiver {
+
+    public AlarmReceiver() {
+        super();
+    }
+
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -35,6 +40,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, notification);
+
+        int t = 6;
 
 
     }

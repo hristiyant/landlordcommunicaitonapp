@@ -15,6 +15,8 @@ public class ScheduleNotificationActivity extends Activity {
 
     Timestamp timestamp;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +34,12 @@ public class ScheduleNotificationActivity extends Activity {
 
         int f = 5;
         Intent intent = new Intent(".action.DISPLAY_NOTIFICATION");
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 100,
-//                intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                PendingIntent.getBroadcast(this, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT));
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 100,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sendBroadcast());
+
+        sendBroadcast(intent);
+
         finish();
     }
 }

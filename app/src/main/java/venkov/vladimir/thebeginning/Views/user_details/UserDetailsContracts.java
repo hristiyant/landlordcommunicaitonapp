@@ -14,6 +14,8 @@ public interface UserDetailsContracts {
 
         void hideLoading();
 
+        void setLoggedUser(User loggedUser);
+
     }
 
     interface Presenter {
@@ -21,7 +23,10 @@ public interface UserDetailsContracts {
 
         void loadUser();
 
-        void setUserId(int id);
+        void setUserToShow(User userToShow);
 
+        void setDetails();
+
+        void setLoggedUser(User loggedUser);
     }
 }

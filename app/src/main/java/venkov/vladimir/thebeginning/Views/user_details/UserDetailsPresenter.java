@@ -15,7 +15,8 @@ public class UserDetailsPresenter implements UserDetailsContracts.Presenter {
     private final SchedulerProvider mSchedulerProvider;
 
     private UserDetailsContracts.View mView;
-    private int mUserId;
+    private User mUserToShow;
+    private User mLoggedUser;
 
     @Inject
     public UserDetailsPresenter(UserService userService, SchedulerProvider schedulerProvider) {
@@ -30,11 +31,16 @@ public class UserDetailsPresenter implements UserDetailsContracts.Presenter {
     }
 
     @Override
+    public void setDetails() {
+        mView.setLoggedUser(mLoggedUser);
+    }
+
+    @Override
     public void loadUser() {
         mView.showLoading();
 
         Disposable observable = Observable.create((ObservableOnSubscribe<User>) emitter -> {
-            User user = mUserService.getDetailsById(mUserId);
+            User user = mUserService.getDetailsById(mUserToShow.getId());
             emitter.onNext(user);
             emitter.onComplete();
         })
@@ -45,8 +51,13 @@ public class UserDetailsPresenter implements UserDetailsContracts.Presenter {
     }
 
     @Override
-    public void setUserId(int id) {
-        mUserId = id;
+    public void setUserToShow(User userToShow) {
+        mUserToShow = userToShow;
+    }
+
+    @Override
+    public void setLoggedUser(User loggedUser) {
+        mLoggedUser = loggedUser;
     }
 }
 

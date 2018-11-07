@@ -72,7 +72,7 @@
         <activity android:name=".Views.notifications.ScheduleNotificationActivity"></activity>
         <receiver android:name=".Views.notifications.AlarmReceiver">
             <intent-filter>
-                <action android:name=".action.DISPLAY_NOTIFICATION"></action>
+                <action android:name=".action.bla"></action>
             </intent-filter>
         </receiver>
 

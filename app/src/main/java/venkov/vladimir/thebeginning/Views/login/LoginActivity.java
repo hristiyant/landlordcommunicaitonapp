@@ -40,5 +40,9 @@ public class LoginActivity extends DaggerAppCompatActivity implements LoginContr
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.EXTRA_KEY, user);
         startActivity(intent);
+
+//        Intent intent = new Intent(".action.bla");
+//        sendBroadcast(intent);
+//        int b = 7;
     }
 }

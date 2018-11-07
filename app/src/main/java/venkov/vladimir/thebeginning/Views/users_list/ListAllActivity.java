@@ -45,6 +45,7 @@ public class ListAllActivity extends DaggerAppCompatActivity implements UsersLis
     public void navigateWith(User user) {
         Intent intent = new Intent(this, UserDetailsActivity.class);
         intent.putExtra(UserDetailsActivity.EXTRA_KEY, user);
+        intent.putExtra(UserDetailsActivity.EXTRA_KEY_LOGGED_USER, mLoggedUser);
         startActivity(intent);
     }
 
