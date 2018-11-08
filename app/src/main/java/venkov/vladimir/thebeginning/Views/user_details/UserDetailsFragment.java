@@ -3,19 +3,23 @@ package venkov.vladimir.thebeginning.Views.user_details;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.ratingdialog.simple.RatingDialog;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import venkov.vladimir.thebeginning.R;
 import venkov.vladimir.thebeginning.models.User;
 
@@ -38,6 +42,9 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
 
     @BindView(R.id.rb_show_rating)
     RatingBar mShowRating;
+
+    @BindView(R.id.btn_rate_user)
+    Button mRateUser;
 
     private User mUserToBeRated;
 
@@ -86,7 +93,7 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
         //mShowRating.setRating((float) user.getRating());
         //Animation for our rating bar
         ObjectAnimator anim = ObjectAnimator.ofFloat(mShowRating, "rating", 0f, userRating);
-        anim.setDuration(1000);
+        anim.setDuration(800);
         anim.start();
     }
 
@@ -94,6 +101,29 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
         mUserToBeRated = userToBeRated;
     }
 
+    @OnClick(R.id.btn_rate_user)
+    public void onBtnRateUserClicked(){
+        RatingDialog mRatingDialog = new RatingDialog(getContext());
+        mRatingDialog.setRatingDialogListener(new RatingDialog.RatingDialogInterFace() {
+            @Override
+            public void onDismiss() {
+                Log.v("RATELISTERNER","onDismiss ");
+            }
+
+            @Override
+            public void onSubmit(float rating) {
+                Log.v("RATELISTERNER","onSubmit "+rating);
+                mRatingDialog.closeDialog();
+            }
+
+            @Override
+            public void onRatingChanged(float rating) {
+                Log.v("RATELISTERNER","onRatingChanged "+rating);
+            }
+        });
+
+        mRatingDialog.showDialog();
+    }
 
     @Override
     public void setPresenter(UserDetailsContracts.Presenter presenter) {

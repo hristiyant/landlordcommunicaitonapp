@@ -2,7 +2,7 @@ package venkov.vladimir.thebeginning;
 public class Constants {
     public static final String BASE_SERVER_URL
 //            = "http://192.168.43.138:8080";
-            = "http://10.109.72.58:8080";
+            = "http://192.168.1.5:8080";
 //            = "http://192.168.1.248:8080"; //vl domip
 //    ="http://192.168.43.196:8080"; //hrist phone hotspot
     public static final int USER_LAST_NAME_MIN_LENGTH = 2;

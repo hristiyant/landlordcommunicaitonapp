@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundDark"
     tools:context=".Views.accommodation_details.AccommodationDetailsFragment">
 
     <LinearLayout
@@ -27,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="rent"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
         <ProgressBar
             android:id="@+id/loading"
@@ -36,14 +37,14 @@
             android:visibility="gone" />
 
         <EditText
+            android:id="@+id/et_pay_rent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_pay_rent"
             android:hint="New Rent"
+            android:inputType="numberDecimal"
             android:textColor="@android:color/white"
             android:textColorHint="@color/colorPrimary"
-            android:inputType="numberDecimal"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btn_edit_rent"
@@ -52,7 +53,7 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/animated_button"
             android:text="Change Rent"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
         <Button
             android:id="@+id/btn_pay_rent"
@@ -61,7 +62,7 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/animated_button"
             android:text="Pay Rent"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btn_start_chat_activity"
@@ -75,14 +76,14 @@
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.MapFragment"
             android:layout_width="match_parent"
-            android:layout_height="500dp"/>
+            android:layout_height="500dp" />
 
         <!--<Button-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/btn_share_this_location"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:text="share_this_store_location"/>-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/btn_share_this_location"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:text="share_this_store_location"/>-->
 
     </LinearLayout>
 

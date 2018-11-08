@@ -22,7 +22,7 @@ import butterknife.OnClick;
 import venkov.vladimir.thebeginning.R;
 import venkov.vladimir.thebeginning.models.User;
 
-public class LoginFragment extends Fragment implements LoginContracts.View{
+public class LoginFragment extends Fragment implements LoginContracts.View {
 
     @BindView(R.id.loading)
     ProgressBar mProgressBar;
@@ -63,30 +63,6 @@ public class LoginFragment extends Fragment implements LoginContracts.View{
         mPresenter.loginUser(phoneNumber);
     }
 
-    @OnClick(R.id.btn_dialog)
-    public void onDialogButtonClick() {
-        RatingDialog mRatingDialog = new RatingDialog(getContext());
-        mRatingDialog.setRatingDialogListener(new RatingDialog.RatingDialogInterFace() {
-            @Override
-            public void onDismiss() {
-                Log.v("RATELISTERNER","onDismiss ");
-            }
-
-            @Override
-            public void onSubmit(float rating) {
-                Log.v("RATELISTERNER","onSubmit "+rating);
-                mRatingDialog.closeDialog();
-            }
-
-            @Override
-            public void onRatingChanged(float rating) {
-                Log.v("RATELISTERNER","onRatingChanged "+rating);
-            }
-        });
-
-        mRatingDialog.showDialog();
-
-    }
 
     void setNavigator(LoginContracts.Navigator navigator) {
         mNavigator = navigator;

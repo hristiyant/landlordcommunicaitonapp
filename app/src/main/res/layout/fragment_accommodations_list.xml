@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundDark"
     tools:context=".Views.accommodations_list.AccommodationsListFragment">
 
     <RelativeLayout
@@ -19,7 +20,9 @@
             android:id="@+id/et_filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter to search" />
+            android:hint="Enter to search"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/lv_accommodations"

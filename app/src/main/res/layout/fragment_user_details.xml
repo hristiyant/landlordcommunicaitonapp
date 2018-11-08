@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundDark"
     tools:context=".Views.user_details.UserDetailsFragment">
 
-    <android.support.constraint.ConstraintLayout
+    <!--<android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical">-->
 
         <ImageView
             android:id="@+id/iv_user_details_photo"
@@ -67,22 +68,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_user_details_photo" />
 
-        <RatingBar
-            android:id="@+id/rb_show_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:progressTint="@color/colorPrimaryDark"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-            app:layout_constraintTop_toBottomOf="@+id/tv_phone_number"
-            tools:progressBackgroundTint="@android:color/white" />
+    <RatingBar
+        android:id="@+id/rb_show_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/animated_button"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/backgroundDark"
+        android:progressTint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phone_number" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -105,7 +107,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="8dp"
-                android:background="@android:drawable/btn_star_big_on"
+                android:background="@android:drawable/star_big_off"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -122,5 +124,5 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
-    </android.support.constraint.ConstraintLayout>
-</FrameLayout>
+    <!--</android.support.constraint.ConstraintLayout>-->
+</android.support.constraint.ConstraintLayout>
