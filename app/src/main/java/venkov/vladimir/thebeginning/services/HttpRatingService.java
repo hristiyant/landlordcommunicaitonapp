@@ -1,5 +1,7 @@
 package venkov.vladimir.thebeginning.services;
 
+import java.io.IOException;
+
 import venkov.vladimir.thebeginning.models.User;
 import venkov.vladimir.thebeginning.repositories.base.RatingRepository;
 import venkov.vladimir.thebeginning.repositories.base.Repository;
@@ -20,4 +22,11 @@ public class HttpRatingService implements RatingService {
     public double getUserRatingByID(int userId) throws Exception {
         return mRatingRepository.getRatingById(userId);
     }
+
+    @Override
+    public void createOrUpdateUserRating(int ratedUserId, int giverUserId, double ratingValue) throws Exception {
+        mRatingRepository.createOrUpdateUserRating(ratedUserId, giverUserId, ratingValue);
+    }
+
+
 }

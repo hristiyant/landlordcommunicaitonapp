@@ -94,4 +94,10 @@ public class User implements Serializable {
     public void setImageOfTheUser(String imageOfTheUser) {
         this.imageOfTheUser = imageOfTheUser;
     }
+
+    //toString required for debugging
+    @Override
+    public String toString() {
+        return this.firstName + " " + this.lastName;
+    }
 }

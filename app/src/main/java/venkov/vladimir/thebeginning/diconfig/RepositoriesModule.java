@@ -46,7 +46,7 @@ public class RepositoriesModule {
             HttpRequester httpRequester,
             JsonParser<Double> jsonParser
     ) {
-        String url = baseServerUrl + "/Users";
+        String url = baseServerUrl;
         return new RatingRepositoryImpl(httpRequester, url, jsonParser);
     }
 

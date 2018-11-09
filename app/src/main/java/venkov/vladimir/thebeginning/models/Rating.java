@@ -6,16 +6,17 @@ public class Rating {
 
     private double rating;
 
-    private User ratedUser;
+    private int ratedUserId;
 
-    private User sourceUser;
+    private int sourceUserId;
 
     public Rating() {
     }
 
-    public Rating(User ratedUser, User sourceUser, double rating) {
+    public Rating(int ratedUser, int sourceUser, double rating) {
         this.rating = rating;
-        this.ratedUser = ratedUser;
+        this.ratedUserId = ratedUser;
+        this.sourceUserId = sourceUser;
     }
 
     public int getId() {
@@ -34,19 +35,19 @@ public class Rating {
         this.rating = rating;
     }
 
-    public User getRatedUser() {
-        return ratedUser;
+    public int getRatedUser() {
+        return ratedUserId;
     }
 
-    public void setRatedUser(User ratedUser) {
-        this.ratedUser = ratedUser;
+    public void setRatedUser(int ratedUserId) {
+        this.ratedUserId = ratedUserId;
     }
 
-    public User getSourceUser() {
-        return sourceUser;
+    public int getSourceUser() {
+        return sourceUserId;
     }
 
-    public void setSourceUser(User sourceUser) {
-        this.sourceUser = sourceUser;
+    public void setSourceUser(int sourceUserId) {
+        this.sourceUserId = sourceUserId;
     }
 }

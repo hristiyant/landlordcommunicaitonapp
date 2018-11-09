@@ -62,6 +62,7 @@ public class UsersListPresenter implements UsersListContracts.Presenter {
 
     public void selectUser(User user) {
         mView.showUserDetails(user);
+
     }
 
     private void presentUsersToView(List<User> users) {

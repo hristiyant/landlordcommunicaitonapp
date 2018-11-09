@@ -21,7 +21,7 @@ public class RatingRepositoryImpl implements RatingRepository {
 
     @Override
     public double getRatingById(int userId) {
-        String url = mServerUrl + "/" + userId + "/rating";
+        String url = mServerUrl + "/Users/" + userId + "/rating";
         String json = null;
         try {
             json = mHttpRequester.get(url);
@@ -32,5 +32,22 @@ public class RatingRepositoryImpl implements RatingRepository {
         int b = 5;
 
         return a;
+    }
+
+    @Override
+    public void createOrUpdateUserRating(int ratedUserId, int giverUserId, double ratingValue) throws IOException {
+        String url = mServerUrl + "/Ratings/" + ratedUserId + "/" + giverUserId + "/" + ratingValue;
+        String json = null;
+        String requestBody = mJsonParser.toJson(new Rating(ratedUserId, giverUserId, ratingValue));
+        String responseBdy = mHttpRequester.put(url, requestBody);
+
+        /*String json = null;
+        json = mHttpRequester.get(url);
+
+        double a = (double) mJsonParser.fromJson(json);
+
+        int bp = 1;
+
+        return a;*/
     }
 }

@@ -564,6 +564,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable cancel
 drawable circle_shaped
+drawable dialog_background
 drawable empty
 drawable favorite
 drawable favorite2

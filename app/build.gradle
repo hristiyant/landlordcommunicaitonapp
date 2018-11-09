@@ -73,8 +73,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
 
-
+    //Subproject for custom rating bar
     implementation project(':subProject:ratingDialog')
+
+    //
+    implementation 'tyrantgit:explosionfield:1.0.1'
 }
 
 apply plugin: 'com.google.gms.google-services'
