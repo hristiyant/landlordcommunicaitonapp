@@ -16,9 +16,6 @@ public interface UserDetailsContracts {
 
         void setLoggedUser(User loggedUser);
 
-        void setUserToBeRated(User userToBeRated);
-
-        void showChangedUser(User user);
     }
 
     interface Presenter {
@@ -32,10 +29,6 @@ public interface UserDetailsContracts {
 
         void setLoggedUser(User loggedUser);
 
-        void createOrUpdateUserRating(User ratedUser, double ratingValue);
-    }
-
-    interface Navigator {
-        void navigateWith(User userToBeRated, User loggedUser);
+        void rateUserByTakerIdAndGiverId(int takerId, int giverId, double rating);
     }
 }
