@@ -20,4 +20,9 @@ public class HttpRatingService implements RatingService {
     public double getUserRatingByID(int userId) throws Exception {
         return mRatingRepository.getRatingById(userId);
     }
+
+    @Override
+    public double rateTakerUserByIdAndGiverUserId(int takerUserId, int giverUserId, double rating) {
+        return mRatingRepository.rateTakerUserByIdAndGiverUserId(takerUserId, giverUserId, rating);
+    }
 }

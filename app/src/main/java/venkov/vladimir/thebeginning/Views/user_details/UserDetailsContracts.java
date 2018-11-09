@@ -28,5 +28,7 @@ public interface UserDetailsContracts {
         void setDetails();
 
         void setLoggedUser(User loggedUser);
+
+        void rateUserByTakerIdAndGiverId(int takerId, int giverId, double rating);
     }
 }

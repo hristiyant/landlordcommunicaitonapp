@@ -72,6 +72,7 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
         super.onResume();
         mPresenter.subscribe(this);
         mPresenter.loadUser();
+        mPresenter.setDetails();
     }
 
     @Override
@@ -113,11 +114,16 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
             @Override
             public void onSubmit(float rating) {
                 Log.v("RATELISTERNER","onSubmit "+rating);
+
+                mPresenter.rateUserByTakerIdAndGiverId(mUserToBeRated.getId(), mLoggedUser.getId(),
+                        rating);
+
                 mRatingDialog.closeDialog();
             }
 
             @Override
             public void onRatingChanged(float rating) {
+                float ratingD = rating;
                 Log.v("RATELISTERNER","onRatingChanged "+rating);
             }
         });
