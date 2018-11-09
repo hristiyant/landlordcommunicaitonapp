@@ -1,5 +1,7 @@
 package venkov.vladimir.thebeginning.Views.user_details;
 
+import android.util.Log;
+
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
@@ -21,8 +23,7 @@ public class UserDetailsPresenter implements UserDetailsContracts.Presenter {
     private User mLoggedUser;
 
     @Inject
-    public UserDetailsPresenter(UserService userService, SchedulerProvider schedulerProvider,
-                                RatingService ratingService) {
+    public UserDetailsPresenter(UserService userService, SchedulerProvider schedulerProvider, RatingService ratingService) {
         this.mUserService = userService;
         this.mSchedulerProvider = schedulerProvider;
         this.mRatingService = ratingService;
@@ -36,7 +37,7 @@ public class UserDetailsPresenter implements UserDetailsContracts.Presenter {
 
     @Override
     public void setDetails() {
-        mView.setLoggedUser(mLoggedUser);
+        mView.setUserToBeRated(mUserToShow);
     }
 
     @Override
@@ -55,31 +56,45 @@ public class UserDetailsPresenter implements UserDetailsContracts.Presenter {
     }
 
     @Override
-    public void rateUserByTakerIdAndGiverId(int takerId, int giverId, double rating) {
+    public void createOrUpdateUserRating(User ratedUser, double ratingValue) {
         mView.showLoading();
 
-        Disposable observable = Observable.create((ObservableOnSubscribe<Double>) emitter -> {
-            Double ratingReceived = mRatingService.rateTakerUserByIdAndGiverUserId(
-                    takerId, giverId, rating);
-
-            emitter.onNext(ratingReceived);
+        Disposable observable = Observable.create((ObservableOnSubscribe<User>) emitter -> {
+            mRatingService.createOrUpdateUserRating(ratedUser.getId(), mLoggedUser.getId(),
+                    ratingValue);
+            User user = mUserService.getDetailsById(mUserToShow.getId());
+            int bp = 6;
+            emitter.onNext(user);
             emitter.onComplete();
         })
                 .subscribeOn(mSchedulerProvider.background())
                 .observeOn(mSchedulerProvider.ui())
+                .doFinally(mView::hideLoading)
                 .doOnError(mView::showError)
-                .subscribe();
-        loadUser();
+                .subscribe(this::presentChangedUser,
+                        error -> mView.showError(error));
+    }
+
+    private void presentChangedUser(User user) {
+
+        setUserToShow(user);
+        mView.showChangedUser(user);
+        int b = 5;
     }
 
     @Override
     public void setUserToShow(User userToShow) {
+        //mView.setUserToBeRated(userToShow);
         mUserToShow = userToShow;
+        Log.d("hrs1", mUserToShow.toString());
     }
 
     @Override
     public void setLoggedUser(User loggedUser) {
         mLoggedUser = loggedUser;
+        Log.d("hrs1", "mLoggedUser: " + mLoggedUser);
     }
+
+
 }
 

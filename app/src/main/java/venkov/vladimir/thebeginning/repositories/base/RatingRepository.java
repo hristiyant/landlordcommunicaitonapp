@@ -1,9 +1,11 @@
 package venkov.vladimir.thebeginning.repositories.base;
 
+import java.io.IOException;
+
 public interface RatingRepository {
 
     double getRatingById(int userId);
 
-    double rateTakerUserByIdAndGiverUserId(int takerUserId, int giverUserId, double rating);
+    void createOrUpdateUserRating(int ratedUserId, int giverUserId, double ratingValue) throws IOException;
 
 }

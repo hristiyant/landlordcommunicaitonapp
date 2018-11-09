@@ -2,7 +2,6 @@ package venkov.vladimir.thebeginning.repositories;
 
 import java.io.IOException;
 
-import venkov.vladimir.thebeginning.Constants;
 import venkov.vladimir.thebeginning.http.base.HttpRequester;
 import venkov.vladimir.thebeginning.models.Rating;
 import venkov.vladimir.thebeginning.parsers.base.JsonParser;
@@ -29,24 +28,10 @@ public class RatingRepositoryImpl implements RatingRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        double a = (double) mJsonParser.fromJson(json);
+        int b = 5;
 
-        return (double) mJsonParser.fromJson(json);
-    }
-
-    @Override
-    public double rateTakerUserByIdAndGiverUserId(int takerUserId, int giverUserId, double rating) {
-        String url =Constants.BASE_SERVER_URL + "/Ratings" + "/" + takerUserId + "/" + giverUserId + "/" + rating;
-        String json = null;
-        try {
-            json = mHttpRequester.put(url, "");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-//        Rating ratingReturned = (Rating) mJsonParser.fromJson(json);
-//        double ratingReturnedToDouble = ratingReturned.getRating();
-
-        return rating;
+        return a;
     }
 
     @Override
