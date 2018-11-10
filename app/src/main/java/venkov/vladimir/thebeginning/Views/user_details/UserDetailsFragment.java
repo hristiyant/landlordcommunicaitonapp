@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.ratingdialog.simple.RatingDialog;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import javax.inject.Inject;
 
@@ -52,6 +53,9 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
 
     @BindView(R.id.btn_rate_user)
     Button mRateUser;
+
+    @BindView(R.id.btn_start_chat)
+    Button mBtnStartChat;
 
 
 

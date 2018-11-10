@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/backgroundDark"
+            android:background="@drawable/animated_button"
             android:orientation="vertical">
 
             <TextView
@@ -33,7 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/white" />
+
 
         </LinearLayout>
     </RelativeLayout>

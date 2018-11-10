@@ -22,7 +22,7 @@
             android:layout_height="30dp"
             android:layout_above="@+id/btnSubmit"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/ribonl" />
+            android:src="@drawable/ribonl_purple" />
 
         <ImageView
             android:layout_width="30dp"
@@ -30,7 +30,7 @@
             android:layout_above="@+id/btnSubmit"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
-            android:src="@drawable/ribonr" />
+            android:src="@drawable/ribonr_purple" />
 
 
         <RelativeLayout

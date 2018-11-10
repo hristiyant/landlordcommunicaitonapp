@@ -583,10 +583,12 @@ int drawable notification_template_icon_low_bg 0x7f090066
 int drawable notification_tile_bg 0x7f090067
 int drawable notify_panel_notification_icon_bg 0x7f090068
 int drawable ribonl 0x7f090069
-int drawable ribonr 0x7f09006a
-int drawable submit_bg 0x7f09006b
-int drawable tooltip_frame_dark 0x7f09006c
-int drawable tooltip_frame_light 0x7f09006d
+int drawable ribonl_purple 0x7f09006a
+int drawable ribonr 0x7f09006b
+int drawable ribonr_purple 0x7f09006c
+int drawable submit_bg 0x7f09006d
+int drawable tooltip_frame_dark 0x7f09006e
+int drawable tooltip_frame_light 0x7f09006f
 int id action0 0x7f0c0001
 int id action_bar 0x7f0c0002
 int id action_bar_activity_content 0x7f0c0003

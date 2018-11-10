@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574b</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#d81b60</color>
 
     <color name="chatBubbleGray">#DDDDDD</color>
 
@@ -15,5 +15,15 @@
     <color name="white">#ffffff</color>
 
     <color name="gold">#dab005</color>
+    <color name="pink2">#ff0066</color>
+
+    <!--background colors-->
+    <color name="blue">#2d81ac</color>
+    <color name="darkerBlue">#5527b7</color>
+    <color name="purple">#503869</color>
+    
+    <!--animated_button colors-->
+    <color name="pink">#b7105b</color>
+    <color name="lightPurple">#8552b7</color>
 
 </resources>

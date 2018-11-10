@@ -617,10 +617,12 @@ public final class R {
         public static int notification_tile_bg = 0x7f090067;
         public static int notify_panel_notification_icon_bg = 0x7f090068;
         public static int ribonl = 0x7f090069;
-        public static int ribonr = 0x7f09006a;
-        public static int submit_bg = 0x7f09006b;
-        public static int tooltip_frame_dark = 0x7f09006c;
-        public static int tooltip_frame_light = 0x7f09006d;
+        public static int ribonl_purple = 0x7f09006a;
+        public static int ribonr = 0x7f09006b;
+        public static int ribonr_purple = 0x7f09006c;
+        public static int submit_bg = 0x7f09006d;
+        public static int tooltip_frame_dark = 0x7f09006e;
+        public static int tooltip_frame_light = 0x7f09006f;
     }
     public static final class id {
         private id() {}

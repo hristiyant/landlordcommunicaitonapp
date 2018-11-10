@@ -3,6 +3,7 @@ package venkov.vladimir.thebeginning.Views.login;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
 
 import javax.inject.Inject;
 
@@ -22,6 +23,7 @@ public class LoginActivity extends DaggerAppCompatActivity implements LoginContr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
 
         mLoginFragment.setNavigator(this);
