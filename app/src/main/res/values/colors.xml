@@ -21,9 +21,12 @@
     <color name="blue">#2d81ac</color>
     <color name="darkerBlue">#5527b7</color>
     <color name="purple">#503869</color>
-    
+
     <!--animated_button colors-->
     <color name="pink">#b7105b</color>
     <color name="lightPurple">#8552b7</color>
+
+    <color name="lightPink">#f5c1e1</color>
+    <color name="black">#000000</color>
 
 </resources>

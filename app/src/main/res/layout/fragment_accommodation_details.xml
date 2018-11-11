@@ -15,20 +15,23 @@
             android:id="@+id/tv_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="address" />
+            android:text="address"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/tv_due_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="due Date" />
+            android:text="due Date"
+            android:textSize="30dp"/>
 
         <TextView
             android:id="@+id/tv_rent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="rent"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:textSize="40dp"/>
 
         <ProgressBar
             android:id="@+id/loading"

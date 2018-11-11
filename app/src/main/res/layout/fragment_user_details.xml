@@ -79,7 +79,7 @@
         android:layout_marginTop="8dp"
         android:isIndicator="true"
         android:numStars="5"
-        android:progressTint="@color/pink"
+        android:progressTint="@color/gold"
         android:stepSize="0.5"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"

@@ -1,6 +1,5 @@
 package venkov.vladimir.thebeginning.Views.chat.adapters;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -94,9 +92,11 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
 
             messageParams.addRule(RelativeLayout.END_OF, holder.profileImage.getId());
             messageParams.leftMargin = eightDP;
-            holder.messageText.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorPrimary));
+            holder.messageText.setBackgroundTintList(context.getResources().getColorStateList(R.color.lightPink));
+            holder.messageText.setTextColor(context.getResources().getColorStateList(R.color.black));
 
             timeStampParams.addRule(RelativeLayout.END_OF, holder.profileImage.getId());
+            holder.timeStamp.setTextColor(context.getResources().getColorStateList(R.color.white));
 
             imageMessageParams.addRule(RelativeLayout.END_OF, holder.profileImage.getId());
             imageMessageParams.leftMargin = eightDP;
@@ -111,9 +111,11 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
 
             messageParams.addRule(RelativeLayout.START_OF, holder.profileImage.getId());
             messageParams.rightMargin = eightDP;
+            holder.messageText.setTextColor(context.getResources().getColorStateList(R.color.black));
 
 
             timeStampParams.addRule(RelativeLayout.START_OF, holder.profileImage.getId());
+            holder.timeStamp.setTextColor(context.getResources().getColorStateList(R.color.white));
 
 
             imageMessageParams.addRule(RelativeLayout.START_OF, holder.profileImage.getId());
@@ -201,7 +203,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
             imageMessage = itemView.findViewById(R.id.imageView);
 
             imageMessage.setOnClickListener(v -> {
-                Toast.makeText(context, "aaaaaa", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "aaaaaa", Toast.LENGTH_SHORT).show();
             });
 
         }

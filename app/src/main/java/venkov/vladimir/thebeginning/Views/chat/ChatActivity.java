@@ -168,7 +168,7 @@ public class ChatActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@Nullable final DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
 
-                    Toast.makeText(ChatActivity.this, "MessageSend", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChatActivity.this, "Message sent.", Toast.LENGTH_SHORT).show();
 
                     mMessageField.getText().clear();
 

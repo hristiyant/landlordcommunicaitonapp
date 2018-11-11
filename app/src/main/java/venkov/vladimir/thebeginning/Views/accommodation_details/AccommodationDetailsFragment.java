@@ -24,6 +24,9 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -123,10 +126,13 @@ public class AccommodationDetailsFragment extends Fragment implements Accommodat
         mPresenter.setDetails();
         String address = mCurrentAccommodation.getAddress();
         String price = "" + mCurrentAccommodation.getPrice();
-        String dueDate = "" + mCurrentAccommodation.getDueDate();
+
+        Date date = new Date(mCurrentAccommodation.getDueDate().getTime());
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String dateFormatted = formatter.format(date);
         setAddress(address);
-        setRent(price);
-        setDueDate(dueDate);
+        setRent("$ " + price);
+        setDueDate("Due date: " + dateFormatted);
 
         LatLng coordinates = new LatLng(
                 mCurrentAccommodation.getLatitude(), mCurrentAccommodation.getLongitude());
