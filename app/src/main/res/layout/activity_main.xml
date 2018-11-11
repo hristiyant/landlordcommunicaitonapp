@@ -52,7 +52,9 @@
             android:id="@+id/btn_start_login_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/animated_button"
             android:text="LogOut"
             android:textColor="@android:color/white" />

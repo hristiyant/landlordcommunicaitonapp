@@ -3,6 +3,7 @@ package venkov.vladimir.thebeginning.Views.users_list;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 
 import javax.inject.Inject;
 
@@ -27,6 +28,12 @@ public class ListAllActivity extends DaggerAppCompatActivity implements UsersLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_all);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.mipmap.ic_launcher);
+
+        getSupportActionBar().setTitle("Select user");
 
         ButterKnife.bind(this);
 

@@ -1,5 +1,7 @@
 package venkov.vladimir.thebeginning.Views.chat.adapters;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -30,6 +33,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
     private Context context;
     public Messages message;
     private User mLoggedUser;
+    private FragmentManager manager;
 
     //constructor
     public MessagesAdapter(List<Messages> messagesList, User mLoggedUser, Context context) {
@@ -38,6 +42,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
         this.mLoggedUser = mLoggedUser;
     }
 
+    public void setFragmentManager(FragmentManager manager){
+        this.manager = manager;
+    }
 
     @Override
     public MessagesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -143,6 +150,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
         holder.messageText.setLayoutParams(messageParams);
         holder.timeStamp.setLayoutParams(timeStampParams);
         holder.imageMessage.setLayoutParams(imageMessageParams);
+
+        holder.getContext(context);
+        holder.getFragmentManager(manager);
     }
 
     public Bitmap byteArrayToBitmap(String image) {
@@ -177,6 +187,8 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
         private TextView messageText;
         private ImageView profileImage, imageMessage;
         private TextView timeStamp;
+        private Context context;
+        FragmentManager manager;
 
 
         public MessagesViewHolder(View itemView) {
@@ -188,8 +200,19 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
             timeStamp = itemView.findViewById(R.id.tv_created_at_to_row);
             imageMessage = itemView.findViewById(R.id.imageView);
 
+            imageMessage.setOnClickListener(v -> {
+                Toast.makeText(context, "aaaaaa", Toast.LENGTH_SHORT).show();
+            });
 
         }
 
+        public void getContext(Context context) {
+            this.context = context;
+        }
+
+        public void getFragmentManager(FragmentManager manager) {
+            this.manager = manager;
+        }
     }
+
 }

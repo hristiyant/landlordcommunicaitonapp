@@ -3,6 +3,7 @@ package venkov.vladimir.thebeginning.Views.login;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.view.Window;
 
 import javax.inject.Inject;
@@ -29,6 +30,13 @@ public class LoginActivity extends DaggerAppCompatActivity implements LoginContr
         mLoginFragment.setNavigator(this);
         mLoginFragment.setPresenter(mLoginPresenter);
         Intent intent = getIntent();
+
+        //Set Icon in title bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.mipmap.ic_launcher);
+
+        getSupportActionBar().setTitle("Login");
 
         FragmentTransaction ft = getFragmentManager().beginTransaction()
                 .replace(R.id.contentLogin, mLoginFragment);

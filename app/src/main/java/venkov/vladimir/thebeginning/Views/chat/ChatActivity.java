@@ -100,6 +100,7 @@ public class ChatActivity extends AppCompatActivity {
         mMessagesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mMessagesAdapter = new MessagesAdapter(mMessagesList, mLoggedUser, this);
         mMessagesRecyclerView.setAdapter(mMessagesAdapter);
+        mMessagesAdapter.setFragmentManager(getFragmentManager());
 
 
         getSupportActionBar().setTitle(mTargetUser.getFirstName() + " " + mTargetUser.getLastName());

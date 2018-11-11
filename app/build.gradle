@@ -74,7 +74,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
     implementation 'com.google.firebase:firebase-storage:16.0.1'
 
-
     //Subproject for custom rating bar
     implementation project(':subProject:ratingDialog')
 

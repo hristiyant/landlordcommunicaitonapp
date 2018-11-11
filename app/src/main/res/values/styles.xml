@@ -6,6 +6,7 @@
         <item name="android:background">@android:color/transparent</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="colorAccent">@color/pink</item>
+        <item name="android:windowDisablePreview">true</item>
     </style>
 
     <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

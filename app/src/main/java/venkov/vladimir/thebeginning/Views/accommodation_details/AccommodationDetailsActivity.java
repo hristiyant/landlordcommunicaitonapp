@@ -3,6 +3,7 @@ package venkov.vladimir.thebeginning.Views.accommodation_details;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 
 import javax.inject.Inject;
 
@@ -33,6 +34,12 @@ public class AccommodationDetailsActivity extends DaggerAppCompatActivity implem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accommodation_details);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.mipmap.ic_launcher);
+
+        getSupportActionBar().setTitle("Accommodation details");
 
         ButterKnife.bind(this);
 

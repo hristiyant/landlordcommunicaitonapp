@@ -3,6 +3,7 @@ package venkov.vladimir.thebeginning;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Window;
@@ -53,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*//-----------------------FULLSCREEN
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //-----------------------------------------
-*/
+        //Set Icon in title bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.mipmap.ic_launcher);
 
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().setTitle("Menu");
+
 
         ButterKnife.bind(this);
 

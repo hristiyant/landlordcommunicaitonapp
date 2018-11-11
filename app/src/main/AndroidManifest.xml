@@ -7,10 +7,9 @@
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <permission
         android:name="android.permission.MAPS_RECEIVE"
@@ -38,32 +37,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Views.users_list.ListAllActivity" />
-        <activity android:name=".Views.user_details.UserDetailsActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Views.login.LoginActivity"
+        <activity android:name=".Views.users_list.ListAllActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".Views.accommodations_list.AccommodationsListActivity" />
-        <activity android:name=".Views.chat.ChatActivity">
+        <activity android:name=".Views.user_details.UserDetailsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".Views.login.LoginActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".Views.accommodations_list.AccommodationsListActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Views.chat.ChatActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Views.chat.DialogsActivity" />
         </activity>
-        <activity android:name=".Views.accommodation_details.AccommodationDetailsActivity" />
+        <activity android:name=".Views.accommodation_details.AccommodationDetailsActivity"
+            android:screenOrientation="portrait">
+        </activity>
         <activity
             android:name=".Views.chat.DialogsActivity"
             android:label="@string/title_activity_dialogs"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Views.chat.select_user.SelectUserActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Views.chat.DialogsActivity" />
+                android:value=".Views.chat.DialogsActivity"
+                android:screenOrientation="portrait"/>
         </activity>
 
         <!-- <uses-library android:name="org.apache.http.legacy" android:required="false"/> -->
@@ -72,13 +79,22 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBJbrYza6-X9kKG_9N6iw9Yp9rK6UwKKLk" />
 
-        <activity android:name=".Views.notifications.ScheduleNotificationActivity"></activity>
+        <activity android:name=".Views.notifications.ScheduleNotificationActivity" />
+
         <receiver android:name=".Views.notifications.AlarmReceiver">
             <intent-filter>
-                <action android:name=".action.bla"></action>
+                <action android:name=".action.bla" />
             </intent-filter>
         </receiver>
 
+        <activity android:name=".Views.splash.SplashScreen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package venkov.vladimir.thebeginning.Views.user_details;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 
 import javax.inject.Inject;
@@ -32,6 +33,12 @@ public class UserDetailsActivity extends DaggerAppCompatActivity implements User
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.mipmap.ic_launcher);
+
+        getSupportActionBar().setTitle("User Details");
 
         ButterKnife.bind(this);
 

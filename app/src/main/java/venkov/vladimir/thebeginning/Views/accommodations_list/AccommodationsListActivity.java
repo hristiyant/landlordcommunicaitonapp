@@ -3,6 +3,7 @@ package venkov.vladimir.thebeginning.Views.accommodations_list;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 
 import javax.inject.Inject;
 
@@ -29,6 +30,12 @@ public class AccommodationsListActivity extends DaggerAppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accommodations_list);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.mipmap.ic_launcher);
+
+        getSupportActionBar().setTitle("Select accommodation");
 
         ButterKnife.bind(this);
 
