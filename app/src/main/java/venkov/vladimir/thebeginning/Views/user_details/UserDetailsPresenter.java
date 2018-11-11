@@ -38,6 +38,7 @@ public class UserDetailsPresenter implements UserDetailsContracts.Presenter {
     @Override
     public void setDetails() {
         mView.setUserToBeRated(mUserToShow);
+        mView.setLoggedUser(mLoggedUser);
     }
 
     @Override

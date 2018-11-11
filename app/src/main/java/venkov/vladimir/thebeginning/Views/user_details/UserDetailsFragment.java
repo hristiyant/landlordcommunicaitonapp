@@ -23,6 +23,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import venkov.vladimir.thebeginning.R;
+import venkov.vladimir.thebeginning.Views.chat.ChatActivity;
+import venkov.vladimir.thebeginning.Views.chat.select_user.SelectUserActivity;
 import venkov.vladimir.thebeginning.Views.notifications.ScheduleNotificationActivity;
 import venkov.vladimir.thebeginning.models.User;
 
@@ -125,7 +127,13 @@ public class UserDetailsFragment extends Fragment implements UserDetailsContract
         onResume();
     }
 
-
+    @OnClick(R.id.btn_start_chat)
+    public void onStartChatClick() {
+        Intent intent = new Intent(getContext(), ChatActivity.class);
+        intent.putExtra(SelectUserActivity.EXTRA_TARGET_USER, mUserToBeRated);
+        intent.putExtra(SelectUserActivity.EXTRA_LOGGED_USER, mLoggedUser);
+        startActivity(intent);
+    }
 
     @Override
     public void showUser(User user) {
