@@ -11,6 +11,7 @@ import dagger.android.support.DaggerAppCompatActivity;
 import venkov.vladimir.thebeginning.MainActivity;
 import venkov.vladimir.thebeginning.R;
 import venkov.vladimir.thebeginning.Views.chat.ChatActivity;
+import venkov.vladimir.thebeginning.Views.chat.select_user.SelectUserActivity;
 import venkov.vladimir.thebeginning.models.Accommodation;
 import venkov.vladimir.thebeginning.models.User;
 
@@ -53,9 +54,19 @@ public class AccommodationDetailsActivity extends DaggerAppCompatActivity implem
 
     @Override
     public void navigateWith(Accommodation currentAccommodation, User loggedUser) {
+//        Intent intent = new Intent(this, ChatActivity.class);
+//        intent.putExtra(MainActivity.EXTRA_KEY, loggedUser);
+//        intent.putExtra(AccommodationDetailsActivity.ACCOMMODATION_EXTRA_KEY, currentAccommodation);
+//        startActivity(intent);
+            User targetUser;
+        if (loggedUser.getLandlord()) {
+            targetUser = currentAccommodation.getTenant();
+        } else {
+            targetUser = currentAccommodation.getLandlord();
+        }
         Intent intent = new Intent(this, ChatActivity.class);
-        intent.putExtra(MainActivity.EXTRA_KEY, loggedUser);
-        intent.putExtra(AccommodationDetailsActivity.ACCOMMODATION_EXTRA_KEY, currentAccommodation);
+        intent.putExtra(SelectUserActivity.EXTRA_TARGET_USER, targetUser);
+        intent.putExtra(SelectUserActivity.EXTRA_LOGGED_USER, loggedUser);
         startActivity(intent);
     }
 }
