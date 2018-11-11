@@ -22,15 +22,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/btn_start_login_activity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/animated_button"
-            android:text="LogOut"
-            android:textColor="@android:color/white" />
-
-        <Button
             android:id="@+id/btn_start_accommodations_list_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,6 +45,16 @@
             android:layout_height="wrap_content"
             android:background="@drawable/animated_button"
             android:text="Users"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_start_login_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/animated_button"
+            android:text="LogOut"
             android:textColor="@android:color/white" />
     </LinearLayout>
 
