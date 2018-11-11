@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "830451572683-ufa4t41gbui9vmvi4n6ksl7bben3eh8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "venkov.vladimir.thebeginning",
+            "certificate_hash": "f189b592ff24b2a2ecad4793301535849a367c52"
+          }
+        },
+        {
           "client_id": "830451572683-eau4hggapimuhu94klsuo5tr6lok3j61.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -30,6 +30,7 @@ public class LoginPresenter implements LoginContracts.Presenter {
     public void loginUser(String phone) {
         mView.showLoading();
         Disposable observable = Observable.create((ObservableOnSubscribe<User>) emitter -> {
+         //TODO remove static user phone
             User userToLogin = mUserService.getUserByPhoneNumber(phone);
             emitter.onNext(userToLogin);
             emitter.onComplete();

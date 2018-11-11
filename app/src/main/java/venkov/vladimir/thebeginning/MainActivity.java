@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -12,6 +14,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,13 +53,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*//-----------------------FULLSCREEN
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //-----------------------------------------
+*/
+
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
         mLoggedUser = (User) intent.getSerializableExtra(MainActivity.EXTRA_KEY);
 
 
+        //init device token
+        String deviceToken = FirebaseInstanceId.getInstance().getToken();
+
+
+        //init db ref
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("usersNew")
+                .child(String.valueOf(mLoggedUser))
+                .child("token").setValue(deviceToken);
+
+
+/*
+
         mDatabase.child("xperiachat");
         mDatabase.child("0888111964").setValue("hristiqneeeeee")
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -78,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("proba", "onFailure: " + e.getMessage());
 
                     }
-                });
+                });*/
     }
 
     @OnClick(R.id.btn_start_login_activity)

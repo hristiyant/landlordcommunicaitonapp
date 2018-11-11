@@ -21,16 +21,13 @@ import venkov.vladimir.thebeginning.MainActivity;
 import venkov.vladimir.thebeginning.R;
 import venkov.vladimir.thebeginning.Views.chat.ChatActivity;
 import venkov.vladimir.thebeginning.Views.chat.adapters.UsersListCustomAdapter;
-import venkov.vladimir.thebeginning.http.OkHttpHttpRequester;
 import venkov.vladimir.thebeginning.models.User;
 import venkov.vladimir.thebeginning.parsers.GsonJsonParser;
-import venkov.vladimir.thebeginning.repositories.HttpRepository;
-import venkov.vladimir.thebeginning.services.HttpUsersService;
-import venkov.vladimir.thebeginning.validatiors.UserValidator;
 
 public class SelectUserActivity extends AppCompatActivity implements UsersListCustomAdapter.ItemClickListener{
 
-    public static final String EXTRA_KEY = "TargetUser";
+    public static final String EXTRA_TARGET_USER = "TargetUser";
+    public static final String EXTRA_LOGGED_USER = "LoggedUser";
 
     private RecyclerView mRecyclerView;
     private UsersListCustomAdapter mAdapter;
@@ -48,6 +45,7 @@ public class SelectUserActivity extends AppCompatActivity implements UsersListCu
 
         Intent intent = getIntent();
         mLoggedUser = (User) intent.getSerializableExtra(MainActivity.EXTRA_KEY);
+
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
@@ -97,7 +95,8 @@ public class SelectUserActivity extends AppCompatActivity implements UsersListCu
     public void onItemClick(View view, int position) {
         User item = mAdapter.getItem(position);
         Intent intent = new Intent(this, ChatActivity.class);
-        intent.putExtra(SelectUserActivity.EXTRA_KEY, item);
+        intent.putExtra(SelectUserActivity.EXTRA_TARGET_USER, item);
+        intent.putExtra(SelectUserActivity.EXTRA_LOGGED_USER, mLoggedUser);
         startActivity(intent);
         finish();
     }
